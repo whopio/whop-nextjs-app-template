@@ -12,7 +12,7 @@ export async function SectionGetUserDetails() {
 
 	const user = (
 		await whopApi.PublicUser({
-			userId: "user_AcfA8Khx5WyAw", // userTokenData.userId,
+			userId: userTokenData.userId,
 		})
 	).publicUser;
 
