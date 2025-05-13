@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@vercel/functions": "^2.0.3",
 		"@whop/api": "^0.0.4",
 		"next": "15.3.2",
 		"react": "^19.0.0",

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@vercel/functions':
+        specifier: ^2.0.3
+        version: 2.0.3
       '@whop/api':
         specifier: ^0.0.4
         version: 0.0.4
@@ -401,6 +404,15 @@ packages:
 
   '@types/react@19.1.4':
     resolution: {integrity: sha512-EB1yiiYdvySuIITtD5lhW4yPyJ31RkJkkDw794LaQYrxCSaQV/47y5o1FMC4zF9ZyjUjzJMZwbovEnT5yHTW6g==}
+
+  '@vercel/functions@2.0.3':
+    resolution: {integrity: sha512-F4PX2D/0WDmoFz3fc5FcdINnSPrM+gU2z18KG7gej7xsvc6PbQ/rEUvP+RcOF6JGzTrHoZfSa1mpcrScuD6AEw==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@aws-sdk/credential-provider-web-identity': '*'
+    peerDependenciesMeta:
+      '@aws-sdk/credential-provider-web-identity':
+        optional: true
 
   '@whop/api@0.0.4':
     resolution: {integrity: sha512-fLqwbBbeDh6CMDqd30gMMbvZVN6q1ttrbFbaIbDGvVzFGtim5k9LuiJa0qAN8geLsofhbzgHBVFUxJ/UlV4Fww==}
@@ -925,6 +937,8 @@ snapshots:
   '@types/react@19.1.4':
     dependencies:
       csstype: 3.1.3
+
+  '@vercel/functions@2.0.3': {}
 
   '@whop/api@0.0.4':
     dependencies:
