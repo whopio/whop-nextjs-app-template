@@ -1,6 +1,6 @@
-import { WhopApi } from "@whop/api";
+import { WhopApi, makeUserTokenVerifier } from "@whop/api";
 
-const whopApi = WhopApi({
+export const whopApi = WhopApi({
 	// Add your app api key here - this is required.
 	// You can get this from the Whop dashboard after creating an app in the "API Keys" section.
 	appApiKey: process.env.WHOP_API_KEY ?? "fallback",
@@ -18,4 +18,7 @@ const whopApi = WhopApi({
 	companyId: undefined,
 });
 
-export default whopApi;
+export const verifyUserToken = makeUserTokenVerifier({
+	appId: process.env.WHOP_APP_ID ?? "fallback",
+	dontThrow: true,
+});

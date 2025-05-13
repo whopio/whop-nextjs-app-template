@@ -12,8 +12,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@whop/api':
-        specifier: ^0.0.4
-        version: 0.0.4
+        specifier: ^0.0.5
+        version: 0.0.5
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -39,6 +39,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.1.5(@types/react@19.1.4)
+      '@whop-apps/dev-proxy':
+        specifier: 0.0.1-canary.110
+        version: 0.0.1-canary.110
       tailwindcss:
         specifier: ^4
         version: 4.1.6
@@ -394,6 +397,9 @@ packages:
   '@tailwindcss/postcss@4.1.6':
     resolution: {integrity: sha512-ELq+gDMBuRXPJlpE3PEen+1MhnHAQQrh2zF0dI1NXOlEWfr2qWf2CQdr5jl9yANv8RErQaQ2l6nIFO9OSCVq/g==}
 
+  '@types/http-proxy@1.17.16':
+    resolution: {integrity: sha512-sdWoUajOB1cd0A8cRRQ1cfyWNbmFKLAqBB89Y8x5iYyG/mkJHc0YUH8pdWBy2omi9qtCpiIgGjuwO0dQST2l5w==}
+
   '@types/node@20.17.46':
     resolution: {integrity: sha512-0PQHLhZPWOxGW4auogW0eOQAuNIlCYvibIpG67ja0TOJ6/sehu+1en7sfceUn+QQtx4Rk3GxbLNwPh0Cav7TWw==}
 
@@ -414,8 +420,15 @@ packages:
       '@aws-sdk/credential-provider-web-identity':
         optional: true
 
-  '@whop/api@0.0.4':
-    resolution: {integrity: sha512-fLqwbBbeDh6CMDqd30gMMbvZVN6q1ttrbFbaIbDGvVzFGtim5k9LuiJa0qAN8geLsofhbzgHBVFUxJ/UlV4Fww==}
+  '@whop-apps/core@0.0.1-canary.110':
+    resolution: {integrity: sha512-caKD/uGzk4m7m9jEYtMzJ78At67frWQfIUA1J6vqkft3XBd3/PbBr50DeLRjpifkSbCb2nbmDsaSwBdJh29yVw==}
+
+  '@whop-apps/dev-proxy@0.0.1-canary.110':
+    resolution: {integrity: sha512-kuaeVYcyZshCIVubNUVism0nt5oTTC5QXopZv2SG2Bk/20fOwPgKic7W6gy+egCA81njBteL9lNe5hG3AtuCHA==}
+    hasBin: true
+
+  '@whop/api@0.0.5':
+    resolution: {integrity: sha512-YrF3MsMC4SkVNZQnGG6tJk1pKOHO3KTwrUc4hBiVfE6x76KBtAe4nN6hrDLZHrr8iCrp9I8msY8/lIuqo6AzJA==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
   busboy@1.6.0:
@@ -446,6 +459,10 @@ packages:
     resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
     engines: {node: '>=12.5.0'}
 
+  cookie@0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
+
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
@@ -456,6 +473,18 @@ packages:
   enhanced-resolve@5.18.1:
     resolution: {integrity: sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg==}
     engines: {node: '>=10.13.0'}
+
+  eventemitter3@4.0.7:
+    resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
+
+  follow-redirects@1.15.9:
+    resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -475,12 +504,22 @@ packages:
     resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
+  http-proxy@1.18.1:
+    resolution: {integrity: sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==}
+    engines: {node: '>=8.0.0'}
+
   is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
 
   jiti@2.4.2:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
+
+  jose@4.15.9:
+    resolution: {integrity: sha512-1vUQX+IdDMVPj4k8kOxgUqlcK518yluMuGZwqlr44FS1ppZB/5GWh4rZG89erpOBOJjU/OBsnCVFfapsRz6nEA==}
+
+  jose@6.0.11:
+    resolution: {integrity: sha512-QxG7EaliDARm1O1S8BGakqncGT9s25bKL1WSf6/oa17Tkqwi8D2ZNglqCF+DsYF88/rV66Q/Q2mFAy697E1DUg==}
 
   lightningcss-darwin-arm64@1.29.2:
     resolution: {integrity: sha512-cK/eMabSViKn/PG8U/a7aCorpeKLMlK0bQeNHmdb7qUnBkNPnL+oV5DjJUo0kqWsJUapZsM4jCfYItbqBDvlcA==}
@@ -607,6 +646,9 @@ packages:
   react@19.1.0:
     resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
+
+  requires-port@1.0.0:
+    resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
 
   scheduler@0.26.0:
     resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
@@ -926,6 +968,10 @@ snapshots:
       postcss: 8.5.3
       tailwindcss: 4.1.6
 
+  '@types/http-proxy@1.17.16':
+    dependencies:
+      '@types/node': 20.17.46
+
   '@types/node@20.17.46':
     dependencies:
       undici-types: 6.19.8
@@ -940,11 +986,24 @@ snapshots:
 
   '@vercel/functions@2.0.3': {}
 
-  '@whop/api@0.0.4':
+  '@whop-apps/core@0.0.1-canary.110': {}
+
+  '@whop-apps/dev-proxy@0.0.1-canary.110':
+    dependencies:
+      '@types/http-proxy': 1.17.16
+      '@whop-apps/core': 0.0.1-canary.110
+      cookie: 0.5.0
+      http-proxy: 1.18.1
+      jose: 4.15.9
+    transitivePeerDependencies:
+      - debug
+
+  '@whop/api@0.0.5':
     dependencies:
       graphql: 16.8.1
       graphql-request: 7.1.2(graphql@16.8.1)
       graphql-tag: 2.12.6(graphql@16.8.1)
+      jose: 6.0.11
 
   busboy@1.6.0:
     dependencies:
@@ -976,6 +1035,8 @@ snapshots:
       color-string: 1.9.1
     optional: true
 
+  cookie@0.5.0: {}
+
   csstype@3.1.3: {}
 
   detect-libc@2.0.4: {}
@@ -984,6 +1045,10 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.1
+
+  eventemitter3@4.0.7: {}
+
+  follow-redirects@1.15.9: {}
 
   graceful-fs@4.2.11: {}
 
@@ -999,10 +1064,22 @@ snapshots:
 
   graphql@16.8.1: {}
 
+  http-proxy@1.18.1:
+    dependencies:
+      eventemitter3: 4.0.7
+      follow-redirects: 1.15.9
+      requires-port: 1.0.0
+    transitivePeerDependencies:
+      - debug
+
   is-arrayish@0.3.2:
     optional: true
 
   jiti@2.4.2: {}
+
+  jose@4.15.9: {}
+
+  jose@6.0.11: {}
 
   lightningcss-darwin-arm64@1.29.2:
     optional: true
@@ -1108,6 +1185,8 @@ snapshots:
       scheduler: 0.26.0
 
   react@19.1.0: {}
+
+  requires-port@1.0.0: {}
 
   scheduler@0.26.0: {}
 
