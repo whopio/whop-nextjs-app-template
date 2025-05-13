@@ -1,13 +1,12 @@
-import { SectionGetExperienceDetails } from "@/components/section-get-experience-details";
-import { SectionGetUserDetails } from "@/components/section-get-user-details";
-import { SectionRequestAPayment } from "@/components/section-request-a-payment";
-import { SectionSendAMessage } from "@/components/section-send-a-message";
-import { SectionSendANotification } from "@/components/section-send-a-notification";
-import { SectionVerifyUserToken } from "@/components/section-verify-user-token";
+import { SectionGetExperienceDetails } from "@/components/examples/section-get-experience-details";
+import { SectionGetUserDetails } from "@/components/examples/section-get-user-details";
+import { SectionRequestAPayment } from "@/components/examples/section-request-a-payment";
+import { SectionSendAMessage } from "@/components/examples/section-send-a-message";
+import { SectionSendANotification } from "@/components/examples/section-send-a-notification";
+import { SectionVerifyUserToken } from "@/components/examples/section-verify-user-token";
 import { SectionWrapper } from "@/components/section-wrapper";
-import { Suspense } from "react";
 
-export default async function ExperiencePage({
+export default function ExperiencePage({
 	params,
 }: {
 	params: Promise<{ experienceId: string }>;
@@ -19,9 +18,7 @@ export default async function ExperiencePage({
 				description="Verify the user token using a header and JWT verification"
 				index={1}
 			>
-				<Suspense fallback={<LoadingFallback />}>
-					<SectionVerifyUserToken />
-				</Suspense>
+				<SectionVerifyUserToken />
 			</SectionWrapper>
 
 			<SectionWrapper
@@ -29,9 +26,7 @@ export default async function ExperiencePage({
 				description="Get the details of the user by making an authenticated request"
 				index={2}
 			>
-				<Suspense fallback={<LoadingFallback />}>
-					<SectionGetUserDetails />
-				</Suspense>
+				<SectionGetUserDetails />
 			</SectionWrapper>
 
 			<SectionWrapper
@@ -39,9 +34,7 @@ export default async function ExperiencePage({
 				description="Get the details of the experience by using the path parameters"
 				index={3}
 			>
-				<Suspense fallback={<LoadingFallback />}>
-					<SectionGetExperienceDetails params={params} />
-				</Suspense>
+				<SectionGetExperienceDetails params={params} />
 			</SectionWrapper>
 
 			<SectionWrapper
@@ -49,9 +42,7 @@ export default async function ExperiencePage({
 				description="Send a notification to the user"
 				index={4}
 			>
-				<Suspense fallback={<LoadingFallback />}>
-					<SectionSendANotification />
-				</Suspense>
+				<SectionSendANotification />
 			</SectionWrapper>
 
 			<SectionWrapper
@@ -59,9 +50,7 @@ export default async function ExperiencePage({
 				description="Send a message to the user"
 				index={5}
 			>
-				<Suspense fallback={<LoadingFallback />}>
-					<SectionSendAMessage />
-				</Suspense>
+				<SectionSendAMessage />
 			</SectionWrapper>
 
 			<SectionWrapper
@@ -69,14 +58,8 @@ export default async function ExperiencePage({
 				description="Request a payment from the user"
 				index={6}
 			>
-				<Suspense fallback={<LoadingFallback />}>
-					<SectionRequestAPayment />
-				</Suspense>
+				<SectionRequestAPayment />
 			</SectionWrapper>
 		</div>
 	);
-}
-
-function LoadingFallback() {
-	return <div>Loading...</div>;
 }

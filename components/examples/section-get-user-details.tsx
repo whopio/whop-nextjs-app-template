@@ -12,12 +12,12 @@ export async function SectionGetUserDetails() {
 
 	const user = (
 		await whopApi.PublicUser({
-			userId: userTokenData.userId,
+			userId: "user_AcfA8Khx5WyAw", // userTokenData.userId,
 		})
 	).publicUser;
 
 	return (
-		<div className="p-6 max-w-xl">
+		<div className="p-2 max-w-xl">
 			<div className="bg-white rounded-xl shadow-lg overflow-hidden">
 				{/* Banner Image */}
 				{user.banner?.sourceUrl && (
