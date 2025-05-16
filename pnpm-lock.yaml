@@ -12,8 +12,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@whop/api':
-        specifier: ^0.0.5
-        version: 0.0.5
+        specifier: ^0.0.8
+        version: 0.0.8
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -427,8 +427,8 @@ packages:
     resolution: {integrity: sha512-kuaeVYcyZshCIVubNUVism0nt5oTTC5QXopZv2SG2Bk/20fOwPgKic7W6gy+egCA81njBteL9lNe5hG3AtuCHA==}
     hasBin: true
 
-  '@whop/api@0.0.5':
-    resolution: {integrity: sha512-YrF3MsMC4SkVNZQnGG6tJk1pKOHO3KTwrUc4hBiVfE6x76KBtAe4nN6hrDLZHrr8iCrp9I8msY8/lIuqo6AzJA==}
+  '@whop/api@0.0.8':
+    resolution: {integrity: sha512-g1X2VlCbep4F3Hkd0G9L8gFBGHMmqSbiotWjGtBtNt3nNRAlTONo0rYmvMqglfBLaac/gfn3bqINYYT6qZPDGw==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
   busboy@1.6.0:
@@ -998,7 +998,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@whop/api@0.0.5':
+  '@whop/api@0.0.8':
     dependencies:
       graphql: 16.8.1
       graphql-request: 7.1.2(graphql@16.8.1)
