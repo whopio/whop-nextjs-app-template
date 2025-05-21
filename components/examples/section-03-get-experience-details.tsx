@@ -1,3 +1,5 @@
+import { whopApi } from "@/lib/whop-api";
+
 export async function SectionGetExperienceDetails({
 	params,
 }: {
@@ -5,11 +7,14 @@ export async function SectionGetExperienceDetails({
 }) {
 	const { experienceId } = await params;
 
-	// const experienceDetails = await whopApi.Experience();
+	const thisExperience = await whopApi.Experience({
+		experienceId: experienceId,
+	});
 
 	return (
 		<div>
 			Experience ID: <code>{experienceId}</code>
+			<pre>{JSON.stringify(thisExperience, null, 2)}</pre>
 		</div>
 	);
 }
