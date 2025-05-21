@@ -17,15 +17,17 @@ export async function SectionSendAMessage({
 			throw new Error("User token is required");
 		}
 
-		const user = await whopApi.PublicUser({ userId: userToken.userId });
+		const user = await whopApi.GetPublicUser({ userId: userToken.userId });
 
 		if (!message || typeof message !== "string") {
 			throw new Error("Chat message is required");
 		}
 
-		await whopApi.SendChatMessage({
+		await whopApi.SendMessageToWhopChat({
 			experienceId: chatExperienceId,
-			message: `${user.publicUser.name ?? user.publicUser.username} just sent a message via the example app: '${message}'. Check it out here: https://whop.com/whop-devs/next-js-app-template-9Pk0xcYN09zkKU/app/`,
+			message: `${
+				user.publicUser.name ?? user.publicUser.username
+			} just sent a message via the example app: '${message}'. Check it out here: https://whop.com/whop-devs/next-js-app-template-9Pk0xcYN09zkKU/app/`,
 		});
 	}
 
@@ -43,7 +45,7 @@ export async function SectionSendAMessage({
 			throw new Error("Chat message is required");
 		}
 
-		await whopApi.SendDmMessage({
+		await whopApi.SendDirectMessageToUser({
 			toUserId: userToken.userId,
 			message: `Hi, you just sent a message via the example app: '${message}'.`,
 		});
