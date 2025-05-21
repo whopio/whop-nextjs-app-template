@@ -10,14 +10,14 @@
 	},
 	"dependencies": {
 		"@vercel/functions": "^2.0.3",
-		"@whop/api": "^0.0.14",
+		"@whop/api": "file:../whop-sdk-ts/packages/api",
 		"next": "15.3.2",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
-		"@tailwindcss/postcss": "^4",	
+		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",

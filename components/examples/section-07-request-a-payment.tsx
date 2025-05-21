@@ -31,7 +31,7 @@ export async function SectionRequestAPayment({
 
 		console.log({
 			userId: userTokenData.userId,
-			amount: parseInt(amount),
+			amount: Number.parseInt(amount),
 			description,
 			currency: "usd",
 			metadata: {
@@ -43,7 +43,7 @@ export async function SectionRequestAPayment({
 		const response = await whopApi.withCompany(companyId).ChargeUser({
 			input: {
 				userId: userTokenData.userId,
-				amount: parseInt(amount),
+				amount: Number.parseInt(amount),
 				description,
 				currency: "usd",
 				metadata: {
