@@ -7,6 +7,7 @@ import { SectionMakeForumPost } from "@/components/examples/section-06-make-foru
 import { SectionRequestAPayment } from "@/components/examples/section-07-request-a-payment";
 import { SectionUploadAnAttachmentServer } from "@/components/examples/section-08-upload-an-attachment-server";
 import { SectionWrapper } from "@/components/section-wrapper";
+import Link from "next/link";
 
 const sections = [
 	{
@@ -60,6 +61,13 @@ export default function ExperiencePage({
 }) {
 	return (
 		<div className="flex flex-col gap-4 p-4">
+			<Link
+				href="https://github.com/whopio/whop-nextjs-app-template"
+				target="_blank"
+				className="text-blue-500 hover:text-blue-600 underline"
+			>
+				View this repo on GitHub
+			</Link>
 			{sections.map((section, index) => (
 				<SectionWrapper
 					key={section.title}

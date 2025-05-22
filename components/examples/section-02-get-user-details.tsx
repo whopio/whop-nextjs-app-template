@@ -11,12 +11,12 @@ export async function SectionGetUserDetails() {
 	}
 
 	const user = (
-		await whopApi.PublicUser({
+		await whopApi.GetPublicUser({
 			userId: userTokenData.userId,
 		})
 	).publicUser;
 
-	const agentUser = (await whopApi.CurrentUser()).viewer.user;
+	const agentUser = (await whopApi.GetCurrentUser()).viewer.user;
 
 	return (
 		<div className="p-2 max-w-xl">

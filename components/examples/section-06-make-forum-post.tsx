@@ -6,12 +6,12 @@ export async function SectionMakeForumPost({
 	params: Promise<{ experienceId: string }>;
 }) {
 	const { experienceId } = await params;
-	const experience = await whopApi.Experience({ experienceId });
+	const experience = await whopApi.GetExperience({ experienceId });
 	const companyId = experience.experience.company.id;
 	// user user_v9KUoZvTGp6ID is an admin of the current company.
 	const forumExperiences = await whopApi
 		.withUser("user_v9KUoZvTGp6ID")
-		.ListExperiences({
+		.GetExperiencesForCompanyOrWhop({
 			companyId,
 			appId: "app_dYfm2IdXhDMquv",
 			onAccessPass: true,
@@ -44,7 +44,6 @@ export async function SectionMakeForumPost({
 
 	return (
 		<div>
-			CompanyId: <code>{companyId}</code>
 			<form action={makeForumPost} className="flex gap-2 items-center">
 				<select name="experienceId">
 					{forumExperiences.company?.experiencesV2.nodes
