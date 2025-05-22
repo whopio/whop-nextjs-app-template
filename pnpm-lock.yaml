@@ -15,8 +15,8 @@ importers:
         specifier: 0.0.1-canary.111
         version: 0.0.1-canary.111(react@19.1.0)
       '@whop/api':
-        specifier: ^0.0.20
-        version: 0.0.20
+        specifier: ^0.0.21-canary.1
+        version: 0.0.21-canary.1
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -465,8 +465,8 @@ packages:
   '@whop-apps/typed-transport@0.0.1-canary.111':
     resolution: {integrity: sha512-jvs9C11P4VGhNgREk4JDnFGSBeSw+GS2ORvnZJgS0o2AxBevB8nAKPElRArEEYrPFmNasoi5t0KcF5EkEoJ+wA==}
 
-  '@whop/api@0.0.20':
-    resolution: {integrity: sha512-r/1iEhDGRItvrl5dqdQktNdvjsCL1Gu16Fklen5YLodwdBDOpP+dYXNgmefYLrwMVizmI/+Z3f2WzUZwQwjInA==}
+  '@whop/api@0.0.21-canary.1':
+    resolution: {integrity: sha512-wLhGJVqUdjtjQ4P9XIUL94f2n1krpA4Gh5v8rnhYFPhn7Jq+bMz+zMKG8htPbIsKKix5sdPIjHjhTjI/FMJEng==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
   busboy@1.6.0:
@@ -1109,7 +1109,7 @@ snapshots:
     dependencies:
       zod: 3.25.20
 
-  '@whop/api@0.0.20':
+  '@whop/api@0.0.21-canary.1':
     dependencies:
       graphql: 16.8.1
       graphql-request: 7.1.2(graphql@16.8.1)

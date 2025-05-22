@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Page() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -19,7 +17,7 @@ export default function Page() {
               <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white mr-3">
                 1
               </span>
-              Create Your Whop App
+              Create your Whop app
             </h2>
             <p className="text-gray-600 ml-11">
               Go to your{" "}
@@ -40,7 +38,7 @@ export default function Page() {
               <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white mr-3">
                 2
               </span>
-              Set Up Environment Variables
+              Set up environment variables
             </h2>
             <p className="text-gray-600 ml-11 mb-4">
               Copy the .env file from your dashboard and create a new .env file
@@ -61,7 +59,7 @@ export default function Page() {
               <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 text-white mr-3">
                 3
               </span>
-              Install Your App into your whop
+              Install your app into your whop
             </h2>
             <p className="text-gray-600 ml-11">
               {process.env.WHOP_APP_ID ? (
