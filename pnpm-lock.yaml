@@ -40,8 +40,8 @@ importers:
         specifier: ^19
         version: 19.1.5(@types/react@19.1.4)
       '@whop-apps/dev-proxy':
-        specifier: 0.0.1-canary.110
-        version: 0.0.1-canary.110
+        specifier: 0.0.1-canary.111
+        version: 0.0.1-canary.111
       tailwindcss:
         specifier: ^4
         version: 4.1.6
@@ -420,11 +420,11 @@ packages:
       '@aws-sdk/credential-provider-web-identity':
         optional: true
 
-  '@whop-apps/core@0.0.1-canary.110':
-    resolution: {integrity: sha512-caKD/uGzk4m7m9jEYtMzJ78At67frWQfIUA1J6vqkft3XBd3/PbBr50DeLRjpifkSbCb2nbmDsaSwBdJh29yVw==}
+  '@whop-apps/core@0.0.1-canary.111':
+    resolution: {integrity: sha512-Mp5RLwiamh1RKcx+4y4UW0OjjWKl3iPnTIsvHqZA5cQtgdSTRWRkYfmMUVF6jPef+3lPF3gCzK/CJrL4GdOZSw==}
 
-  '@whop-apps/dev-proxy@0.0.1-canary.110':
-    resolution: {integrity: sha512-kuaeVYcyZshCIVubNUVism0nt5oTTC5QXopZv2SG2Bk/20fOwPgKic7W6gy+egCA81njBteL9lNe5hG3AtuCHA==}
+  '@whop-apps/dev-proxy@0.0.1-canary.111':
+    resolution: {integrity: sha512-62523NP1dqWI9z6gbs4ApX4DCCGA2WzSUFNzxyLndZWWsrzjdMYgCG6BSQKOdTAscXBSXr1mn5n58QrfC1WtYw==}
     hasBin: true
 
   '@whop/api@0.0.12':
@@ -986,12 +986,12 @@ snapshots:
 
   '@vercel/functions@2.0.3': {}
 
-  '@whop-apps/core@0.0.1-canary.110': {}
+  '@whop-apps/core@0.0.1-canary.111': {}
 
-  '@whop-apps/dev-proxy@0.0.1-canary.110':
+  '@whop-apps/dev-proxy@0.0.1-canary.111':
     dependencies:
       '@types/http-proxy': 1.17.16
-      '@whop-apps/core': 0.0.1-canary.110
+      '@whop-apps/core': 0.0.1-canary.111
       cookie: 0.5.0
       http-proxy: 1.18.1
       jose: 4.15.9

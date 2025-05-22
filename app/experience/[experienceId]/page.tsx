@@ -5,6 +5,7 @@ import { SectionSendANotification } from "@/components/examples/section-04-send-
 import { SectionSendAMessage } from "@/components/examples/section-05-send-a-message";
 import { SectionMakeForumPost } from "@/components/examples/section-06-make-forum-post";
 import { SectionRequestAPayment } from "@/components/examples/section-07-request-a-payment";
+import { SectionUploadAnAttachmentServer } from "@/components/examples/section-08-upload-an-attachment-server";
 import { SectionWrapper } from "@/components/section-wrapper";
 
 const sections = [
@@ -44,6 +45,11 @@ const sections = [
 		title: "Request a Payment",
 		description: "Request a payment from the user",
 		Component: SectionRequestAPayment,
+	},
+	{
+		title: "Upload an Attachment",
+		description: "Upload an attachment to the experience",
+		Component: SectionUploadAnAttachmentServer,
 	},
 ];
 
