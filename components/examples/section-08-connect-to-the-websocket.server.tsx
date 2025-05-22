@@ -26,8 +26,12 @@ export async function SectionConnectToTheWebsocket({
 
 		const message = formData.get("message");
 
+		if (!message || typeof message !== "string") {
+			throw new Error("Message is required");
+		}
+
 		await whopApi.SendWebsocketMessage({
-			message: message as string,
+			message: message,
 			target: { experience: experienceId },
 		});
 	}

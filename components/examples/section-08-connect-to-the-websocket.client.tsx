@@ -1,6 +1,6 @@
 "use client";
 
-import { type WebsocketStatus, WhopWebsocketClient } from "@whop/api";
+import { type WebsocketStatus, WhopClientSdk } from "@whop/api";
 import { useEffect, useState } from "react";
 
 export function SectionConnectToTheWebsocketClient({
@@ -16,7 +16,7 @@ export function SectionConnectToTheWebsocketClient({
 	const [status, setStatus] = useState<WebsocketStatus>("disconnected");
 
 	useEffect(() => {
-		const ws = new WhopWebsocketClient({
+		const ws = WhopClientSdk().ConnectToWebsocket({
 			onMessage: (message) => {
 				const obj = message.appMessage;
 				if (!obj) return;

@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@vercel/functions": "^2.0.3",
-		"@whop/api": "file:../whop-sdk-ts/packages/api",
+		"@whop/api": "0.0.19",
 		"next": "15.3.2",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
@@ -21,7 +21,7 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
-		"@whop-apps/dev-proxy": "0.0.1-canary.110",
+		"@whop-apps/dev-proxy": "0.0.1-canary.111",
 		"tailwindcss": "^4",
 		"typescript": "^5"
 	},
