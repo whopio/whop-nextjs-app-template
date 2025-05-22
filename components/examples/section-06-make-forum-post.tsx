@@ -38,7 +38,11 @@ export async function SectionMakeForumPost({
 			.withUser("user_v9KUoZvTGp6ID")
 			.withCompany(companyId)
 			.CreateForumPost({
-				input: { content, experienceId, title: "Created by the SDK" },
+				input: {
+					content,
+					forumExperienceId: experienceId,
+					title: "Created by the SDK",
+				},
 			});
 	}
 
