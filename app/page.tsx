@@ -45,13 +45,15 @@ export default function Page() {
               in your project root. This will contain all the necessary
               environment variables for your app.
             </p>
-            <div className="text-gray-600 ml-11">
-              <code>
-                WHOP_API_KEY= {process.env.WHOP_API_KEY} <br />
-                WHOP_AGENT_USER_ID= {process.env.WHOP_AGENT_USER_ID} <br />
-                WHOP_APP_ID= {process.env.WHOP_APP_ID}
-              </code>
-            </div>
+            {process.env.NODE_ENV === "development" && (
+              <div className="text-gray-600 ml-11">
+                <code>
+                  WHOP_API_KEY= {process.env.WHOP_API_KEY} <br />
+                  WHOP_AGENT_USER_ID= {process.env.WHOP_AGENT_USER_ID} <br />
+                  WHOP_APP_ID= {process.env.WHOP_APP_ID}
+                </code>
+              </div>
+            )}
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md">

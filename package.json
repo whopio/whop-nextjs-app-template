@@ -12,8 +12,6 @@
     "prisma:migrate:dev": "dotenv -e .env.local -- pnpm prisma migrate dev"
   },
   "dependencies": {
-    "@prisma/client": "^6.8.2",
-    "prisma": "^6.8.2",
     "@vercel/functions": "^2.0.3",
     "@whop-apps/sdk": "0.0.1-canary.111",
     "@whop/api": "^0.0.21-canary.1",
