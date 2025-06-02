@@ -15,8 +15,8 @@ importers:
         specifier: 0.0.1-canary.111
         version: 0.0.1-canary.111(react@19.1.0)
       '@whop/api':
-        specifier: ^0.0.21-canary.4
-        version: 0.0.21-canary.5
+        specifier: ^0.0.21
+        version: 0.0.21
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -43,8 +43,8 @@ importers:
         specifier: ^19
         version: 19.1.5(@types/react@19.1.4)
       '@whop-apps/dev-proxy':
-        specifier: 0.0.1-canary.110
-        version: 0.0.1-canary.110
+        specifier: 0.0.1-canary.116
+        version: 0.0.1-canary.116
       dotenv-cli:
         specifier: ^8.0.0
         version: 8.0.0
@@ -432,18 +432,18 @@ packages:
   '@whop-apps/auth@0.0.1-canary.111':
     resolution: {integrity: sha512-0POUiJKqigIzfzJHusTw6ElOgT5oX5i09Zvj8n9k3kph7FQMZrOahbXlcL2XgRTjpmssU9dQATv3vcVJv4Y8Fw==}
 
-  '@whop-apps/core@0.0.1-canary.110':
-    resolution: {integrity: sha512-caKD/uGzk4m7m9jEYtMzJ78At67frWQfIUA1J6vqkft3XBd3/PbBr50DeLRjpifkSbCb2nbmDsaSwBdJh29yVw==}
-
   '@whop-apps/core@0.0.1-canary.111':
     resolution: {integrity: sha512-Mp5RLwiamh1RKcx+4y4UW0OjjWKl3iPnTIsvHqZA5cQtgdSTRWRkYfmMUVF6jPef+3lPF3gCzK/CJrL4GdOZSw==}
 
-  '@whop-apps/dev-proxy@0.0.1-canary.110':
-    resolution: {integrity: sha512-kuaeVYcyZshCIVubNUVism0nt5oTTC5QXopZv2SG2Bk/20fOwPgKic7W6gy+egCA81njBteL9lNe5hG3AtuCHA==}
-    hasBin: true
+  '@whop-apps/core@0.0.1-canary.116':
+    resolution: {integrity: sha512-8dKsoY3NCQXGnDmYvDC4UYeAQnGTPUuqMIWEM3XgFKkK6+JLcKcJ7FfD4pw5kEz7Bops8GQCPO210vlG49YfCQ==}
 
   '@whop-apps/dev-proxy@0.0.1-canary.111':
     resolution: {integrity: sha512-62523NP1dqWI9z6gbs4ApX4DCCGA2WzSUFNzxyLndZWWsrzjdMYgCG6BSQKOdTAscXBSXr1mn5n58QrfC1WtYw==}
+    hasBin: true
+
+  '@whop-apps/dev-proxy@0.0.1-canary.116':
+    resolution: {integrity: sha512-7droSqunJt/Qa4wpZIbYXVOqs30F+GT1BQUOGwPThjoX08RW/G9SshS3Sp/uMIA2uX6BH3ZinBrNjhHEfv0p+g==}
     hasBin: true
 
   '@whop-apps/iframe@0.0.1-canary.111':
@@ -468,8 +468,8 @@ packages:
   '@whop-apps/typed-transport@0.0.1-canary.111':
     resolution: {integrity: sha512-jvs9C11P4VGhNgREk4JDnFGSBeSw+GS2ORvnZJgS0o2AxBevB8nAKPElRArEEYrPFmNasoi5t0KcF5EkEoJ+wA==}
 
-  '@whop/api@0.0.21-canary.5':
-    resolution: {integrity: sha512-DXAMOdxD7DbgTeeZgUddJgmHGFoZ0mqlIHmFZYQ1nA9jusxp50YBfYrygMKqVaJRY4Xi9B8Z96a7lw+lApoxjg==}
+  '@whop/api@0.0.21':
+    resolution: {integrity: sha512-E5+lYDxlVq3SPAs8aP3Xim42tAdsXbPxgHicddEZH78+wnft4qj/6CeBsyjUyYdhfptE71pBM+hIi0jlNfe12w==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
   busboy@1.6.0:
@@ -503,6 +503,10 @@ packages:
   cookie@0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
+
+  cookie@1.0.2:
+    resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
+    engines: {node: '>=18'}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -1091,25 +1095,25 @@ snapshots:
       cookie: 0.5.0
       jose: 4.15.9
 
-  '@whop-apps/core@0.0.1-canary.110': {}
-
   '@whop-apps/core@0.0.1-canary.111': {}
 
-  '@whop-apps/dev-proxy@0.0.1-canary.110':
-    dependencies:
-      '@types/http-proxy': 1.17.16
-      '@whop-apps/core': 0.0.1-canary.110
-      cookie: 0.5.0
-      http-proxy: 1.18.1
-      jose: 4.15.9
-    transitivePeerDependencies:
-      - debug
+  '@whop-apps/core@0.0.1-canary.116': {}
 
   '@whop-apps/dev-proxy@0.0.1-canary.111':
     dependencies:
       '@types/http-proxy': 1.17.16
       '@whop-apps/core': 0.0.1-canary.111
       cookie: 0.5.0
+      http-proxy: 1.18.1
+      jose: 4.15.9
+    transitivePeerDependencies:
+      - debug
+
+  '@whop-apps/dev-proxy@0.0.1-canary.116':
+    dependencies:
+      '@types/http-proxy': 1.17.16
+      '@whop-apps/core': 0.0.1-canary.116
+      cookie: 1.0.2
       http-proxy: 1.18.1
       jose: 4.15.9
     transitivePeerDependencies:
@@ -1154,7 +1158,7 @@ snapshots:
     dependencies:
       zod: 3.25.20
 
-  '@whop/api@0.0.21-canary.5':
+  '@whop/api@0.0.21':
     dependencies:
       graphql: 16.11.0
       graphql-request: 7.2.0(graphql@16.11.0)
@@ -1194,6 +1198,8 @@ snapshots:
     optional: true
 
   cookie@0.5.0: {}
+
+  cookie@1.0.2: {}
 
   cross-spawn@7.0.6:
     dependencies:
