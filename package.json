@@ -6,15 +6,12 @@
 		"dev": "whop-proxy --command 'next dev --turbopack'",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"prisma:db:push": "dotenv -e .env.local -- pnpm prisma db push",
-		"prisma:generate": "dotenv -e .env.local -- pnpm prisma generate",
-		"prisma:migrate:dev": "dotenv -e .env.local -- pnpm prisma migrate dev"
+		"lint": "next lint"
 	},
 	"dependencies": {
 		"@vercel/functions": "^2.0.3",
-		"@whop-apps/sdk": "0.0.1-canary.111",
-		"@whop/api": "^0.0.21",
+		"@whop/api": "^0.0.24",
+		"@whop/react": "^0.1.0",
 		"next": "15.3.2",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
@@ -25,8 +22,8 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
-		"dotenv-cli": "^8.0.0",
 		"@whop-apps/dev-proxy": "0.0.1-canary.116",
+		"dotenv-cli": "^8.0.0",
 		"tailwindcss": "^4",
 		"typescript": "^5"
 	}
