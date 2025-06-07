@@ -1,23 +1,11 @@
-@import "tailwindcss";
+@layer theme, base, frosted_ui, components, utilities;
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
-}
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "@whop/react/styles.css" layer(frosted_ui);
 
-@theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
-}
+@config '../tailwind.config.ts';
 
 body {
 	background: var(--background);
