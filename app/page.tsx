@@ -51,10 +51,14 @@ export default function Page() {
 									<code>
 										WHOP_API_KEY={process.env.WHOP_API_KEY?.slice(0, 5)}...
 										<br />
-										WHOP_AGENT_USER_ID={process.env.WHOP_AGENT_USER_ID}
+										NEXT_PUBLIC_WHOP_AGENT_USER_ID=
+										{process.env.NEXT_PUBLIC_WHOP_AGENT_USER_ID}
 										<br />
 										NEXT_PUBLIC_WHOP_APP_ID=
 										{process.env.NEXT_PUBLIC_WHOP_APP_ID}
+										<br />
+										NEXT_PUBLIC_WHOP_COMPANY_ID=
+										{process.env.NEXT_PUBLIC_WHOP_COMPANY_ID}
 									</code>
 								</pre>
 							</div>
