@@ -12,11 +12,11 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@whop/api':
-        specifier: ^0.0.26
-        version: 0.0.26
+        specifier: ^0.0.27
+        version: 0.0.27
       '@whop/react':
-        specifier: 0.2.2
-        version: 0.2.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 0.2.6
+        version: 0.2.6(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1736,20 +1736,20 @@ packages:
     resolution: {integrity: sha512-7droSqunJt/Qa4wpZIbYXVOqs30F+GT1BQUOGwPThjoX08RW/G9SshS3Sp/uMIA2uX6BH3ZinBrNjhHEfv0p+g==}
     hasBin: true
 
-  '@whop/api@0.0.26':
-    resolution: {integrity: sha512-ht4Vwo2VSXuHCEGZXlhUYQCNPJXJOoapn6HRQbo0p/JJrNDTsd+mj+axlUDr+4eAdu8md0uLaVwDIrmCNMXIEQ==}
+  '@whop/api@0.0.27':
+    resolution: {integrity: sha512-0+w8bckhPom0Blbxs/lxkmkDJsiVXOzI73ldlkW/y+naKtWWIrbQL5nynSHjI0dUmO7cyuS2fzeBwVvLOWYwOQ==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
-  '@whop/checkout@0.0.26':
-    resolution: {integrity: sha512-Bl51Vqgj8KKyPCNZr6Hm3Bm8bqXj2aL0jn/xGTS+6eaF5Ot/yA4YqzgkmmRixzMMB1vkiJXhRHkB9yEFMGaWIg==}
+  '@whop/checkout@0.0.28':
+    resolution: {integrity: sha512-ncpr1NkpEkno6hErpJ3v3JJHyR5LCnDRfKrAhIq5eVjKuS+3YjkEZJ9oib4ZtpknRnmVIkji8gcTLzH8QllRyA==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
   '@whop/iframe@0.0.3':
     resolution: {integrity: sha512-Gb64GPKnFq0E/GRuKCEHbfxgB362ccAjEA7GHsEMDgRug7PCPCf0DmQRMA0//qV4XKzKKVyis5VGRQivwmnEJg==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
-  '@whop/react@0.2.2':
-    resolution: {integrity: sha512-zdprle+DvJfC/16OsT7DdX91MBHFEawBaDeUOjryRf8tFsgvlWe3LE/QhXxdk97UbAP1mEwwp6+PAxkp+7vqwQ==}
+  '@whop/react@0.2.6':
+    resolution: {integrity: sha512-2KPx384r/aZu04SD5cX1lfvdFlWvUlBAbGU/5dP3G4oQY7MpsBNj29q9tN8VXkSgR1PDr96Rk7C1f06vTGq96Q==}
     engines: {node: 22.x, pnpm: 9.15.9}
     peerDependencies:
       react: ^19.0.0
@@ -4329,7 +4329,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@whop/api@0.0.26':
+  '@whop/api@0.0.27':
     dependencies:
       graphql: 16.11.0
       graphql-request: 7.2.0(graphql@16.11.0)
@@ -4338,16 +4338,16 @@ snapshots:
       js-md5: 0.8.3
       tiny-typed-emitter: 2.1.0
 
-  '@whop/checkout@0.0.26': {}
+  '@whop/checkout@0.0.28': {}
 
   '@whop/iframe@0.0.3':
     dependencies:
       zod: 3.22.3
 
-  '@whop/react@0.2.2(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@whop/react@0.2.6(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@whop/api': 0.0.26
-      '@whop/checkout': 0.0.26
+      '@whop/api': 0.0.27
+      '@whop/checkout': 0.0.28
       '@whop/iframe': 0.0.3
       frosted-ui: 0.0.1-canary.74(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
