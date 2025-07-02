@@ -12,11 +12,11 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@whop/api':
-        specifier: ^0.0.27
-        version: 0.0.27
+        specifier: ^0.0.29
+        version: 0.0.29
       '@whop/react':
-        specifier: 0.2.6
-        version: 0.2.6(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 0.2.14
+        version: 0.2.14(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(framer@2.4.1(framer-motion@10.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -120,6 +120,12 @@ packages:
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
+
+  '@emotion/is-prop-valid@0.8.8':
+    resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+
+  '@emotion/memoize@0.7.4':
+    resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
 
   '@floating-ui/core@1.7.1':
     resolution: {integrity: sha512-azI0DrjMMfIug/ExbBaeDVJXcY0a7EPvPjb2xAJPa4HeimBX+Z18HK8QQR3jb6356SnDDdxx+hinMLcJEDdOjw==}
@@ -302,6 +308,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@juggle/resize-observer@3.4.0':
+    resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
 
   '@next/env@15.3.2':
     resolution: {integrity: sha512-xURk++7P7qR9JG1jJtLzPzf0qEvqCN0A/T3DXf8IPMKo9/6FfjxtEffRJIIew/bIL4T3C2jLLqBor8B/zVlx6g==}
@@ -1736,22 +1745,23 @@ packages:
     resolution: {integrity: sha512-7droSqunJt/Qa4wpZIbYXVOqs30F+GT1BQUOGwPThjoX08RW/G9SshS3Sp/uMIA2uX6BH3ZinBrNjhHEfv0p+g==}
     hasBin: true
 
-  '@whop/api@0.0.27':
-    resolution: {integrity: sha512-0+w8bckhPom0Blbxs/lxkmkDJsiVXOzI73ldlkW/y+naKtWWIrbQL5nynSHjI0dUmO7cyuS2fzeBwVvLOWYwOQ==}
+  '@whop/api@0.0.29':
+    resolution: {integrity: sha512-s/4Sv5GsfeHXaWHy+6jFuXORia3J3oUAhvw21onZGbohPP0fqsXqKyv8/xzl224TxZqBFuc561YRpvGSN8cS5Q==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
-  '@whop/checkout@0.0.28':
-    resolution: {integrity: sha512-ncpr1NkpEkno6hErpJ3v3JJHyR5LCnDRfKrAhIq5eVjKuS+3YjkEZJ9oib4ZtpknRnmVIkji8gcTLzH8QllRyA==}
+  '@whop/checkout@0.0.30':
+    resolution: {integrity: sha512-A6kUJ9crBdOI37/+io6DDqfEkmLe2EhLSfpPan01el//QDKkN5OZLlKlaxrEnnyNN3Fv+jLGIR4rlwdY40ybFA==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
   '@whop/iframe@0.0.3':
     resolution: {integrity: sha512-Gb64GPKnFq0E/GRuKCEHbfxgB362ccAjEA7GHsEMDgRug7PCPCf0DmQRMA0//qV4XKzKKVyis5VGRQivwmnEJg==}
     engines: {node: 22.x, pnpm: 9.15.9}
 
-  '@whop/react@0.2.6':
-    resolution: {integrity: sha512-2KPx384r/aZu04SD5cX1lfvdFlWvUlBAbGU/5dP3G4oQY7MpsBNj29q9tN8VXkSgR1PDr96Rk7C1f06vTGq96Q==}
+  '@whop/react@0.2.14':
+    resolution: {integrity: sha512-b2lD1nWBIail3dbfZ8juTeW9KpGRuwOX+YgMjeDygFTwsQhieIFaHX5DR16vyjl1NgjITGEVrvSupJo3f0FB0w==}
     engines: {node: 22.x, pnpm: 9.15.9}
     peerDependencies:
+      framer: ^2.4.1
       react: ^19.0.0
 
   aria-hidden@1.2.6:
@@ -1830,6 +1840,9 @@ packages:
     resolution: {integrity: sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg==}
     engines: {node: '>=10.13.0'}
 
+  eventemitter3@3.1.2:
+    resolution: {integrity: sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==}
+
   eventemitter3@4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
 
@@ -1841,6 +1854,27 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+
+  fontfaceobserver@2.3.0:
+    resolution: {integrity: sha512-6FPvD/IVyT4ZlNe7Wcn5Fb/4ChigpucKYSvD6a+0iMoLn2inpo711eyIcKjmDtE5XNcgAkSH9uN/nfAeZzHEfg==}
+
+  framer-motion@10.18.0:
+    resolution: {integrity: sha512-oGlDh1Q1XqYPksuTD/usb0I70hq95OUzmL9+6Zd+Hs4XV0oaISBa/UUMSjYiq6m8EUF32132mOJ8xVZS+I0S6w==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
+  framer@2.4.1:
+    resolution: {integrity: sha512-kInsb+tmtNEvOeRa8wT2oRAl8Xe1L8ev4ahinB875Xh0zPBLt5Di6fuvBUILnDUU6mqmM+6QPiNxg62Va66V4Q==}
+    peerDependencies:
+      framer-motion: ^10.13.1
+      react: ^18.2.0
+      react-dom: ^18.2.0
 
   frosted-ui@0.0.1-canary.74:
     resolution: {integrity: sha512-VCaFnITJktJ8U+v2OuOZ5wt9R4lVa6yYcknDOt3+1LshSn8+LlfgyNmt777Ck4qEobPrVFTNmtLqRFrSCHm/CQ==}
@@ -1876,6 +1910,12 @@ packages:
   graphql@16.11.0:
     resolution: {integrity: sha512-mS1lbMsxgQj6hge1XZ6p7GPhbrtFwUFYi3wRzXAC/FmYnyXMTvvI3td3rjmQ2u8ewXueaSvRPWaEcgVVOT9Jnw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  hoist-non-react-statics@3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
+
+  hsluv@0.0.3:
+    resolution: {integrity: sha512-08iL2VyCRbkQKBySkSh6m8zMUa3sADAxGVWs3Z1aPcUkTJeK0ETG4Fc27tEmQBGUAXZjIsXOZqBvacuVNSC/fQ==}
 
   http-proxy@1.18.1:
     resolution: {integrity: sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==}
@@ -2062,6 +2102,9 @@ packages:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
       react: ^19.1.0
+
+  react-is@16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
   react-remove-scroll-bar@2.3.8:
     resolution: {integrity: sha512-9r+yi9+mgU33AKcj6IbT9oRCO78WriSj6t/cF8DWBZJ9aOGPOTEDvdUDz1FwKim7QXWwmHqtdHnRJfhAxEG46Q==}
@@ -2266,6 +2309,14 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  '@emotion/is-prop-valid@0.8.8':
+    dependencies:
+      '@emotion/memoize': 0.7.4
+    optional: true
+
+  '@emotion/memoize@0.7.4':
+    optional: true
+
   '@floating-ui/core@1.7.1':
     dependencies:
       '@floating-ui/utils': 0.2.9
@@ -2430,6 +2481,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@juggle/resize-observer@3.4.0': {}
 
   '@next/env@15.3.2': {}
 
@@ -4329,7 +4382,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@whop/api@0.0.27':
+  '@whop/api@0.0.29':
     dependencies:
       graphql: 16.11.0
       graphql-request: 7.2.0(graphql@16.11.0)
@@ -4338,17 +4391,18 @@ snapshots:
       js-md5: 0.8.3
       tiny-typed-emitter: 2.1.0
 
-  '@whop/checkout@0.0.28': {}
+  '@whop/checkout@0.0.30': {}
 
   '@whop/iframe@0.0.3':
     dependencies:
       zod: 3.22.3
 
-  '@whop/react@0.2.6(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@whop/react@0.2.14(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(framer@2.4.1(framer-motion@10.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
-      '@whop/api': 0.0.27
-      '@whop/checkout': 0.0.28
+      '@whop/api': 0.0.29
+      '@whop/checkout': 0.0.30
       '@whop/iframe': 0.0.3
+      framer: 2.4.1(framer-motion@10.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       frosted-ui: 0.0.1-canary.74(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       use-sync-external-store: 1.5.0(react@19.1.0)
@@ -4427,9 +4481,32 @@ snapshots:
       graceful-fs: 4.2.11
       tapable: 2.2.1
 
+  eventemitter3@3.1.2: {}
+
   eventemitter3@4.0.7: {}
 
   follow-redirects@1.15.9: {}
+
+  fontfaceobserver@2.3.0: {}
+
+  framer-motion@10.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      tslib: 2.8.1
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
+  framer@2.4.1(framer-motion@10.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      '@juggle/resize-observer': 3.4.0
+      eventemitter3: 3.1.2
+      fontfaceobserver: 2.3.0
+      framer-motion: 10.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      hoist-non-react-statics: 3.3.2
+      hsluv: 0.0.3
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   frosted-ui@0.0.1-canary.74(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
@@ -4476,6 +4553,12 @@ snapshots:
       tslib: 2.8.1
 
   graphql@16.11.0: {}
+
+  hoist-non-react-statics@3.3.2:
+    dependencies:
+      react-is: 16.13.1
+
+  hsluv@0.0.3: {}
 
   http-proxy@1.18.1:
     dependencies:
@@ -4754,6 +4837,8 @@ snapshots:
     dependencies:
       react: 19.1.0
       scheduler: 0.26.0
+
+  react-is@16.13.1: {}
 
   react-remove-scroll-bar@2.3.8(@types/react@19.1.4)(react@19.1.0):
     dependencies:
