@@ -10,8 +10,8 @@
 	},
 	"dependencies": {
 		"@vercel/functions": "^2.0.3",
-		"@whop/api": "^0.0.27",
-		"@whop/react": "0.2.6",
+		"@whop/api": "^0.0.29",
+		"@whop/react": "0.2.14",
 		"next": "15.3.2",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
