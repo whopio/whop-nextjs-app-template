@@ -90,7 +90,7 @@ export default function DiscoverPage() {
 							</p>
 						</div>
 						<a
-							href="https://whop.com/signalpro/?a=your_app_id"
+							href="https://whop.com/signalpro/?app=your_app_id"
 							className="mt-auto block w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-center text-sm"
 						>
 							Visit SignalPro
