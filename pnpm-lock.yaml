@@ -12,8 +12,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@whop/api':
-        specifier: ^0.0.42
-        version: 0.0.42(@auth/core@0.40.0)
+        specifier: ^0.0.50
+        version: 0.0.50(@auth/core@0.40.0)
       '@whop/react':
         specifier: 0.2.36
         version: 0.2.36(@auth/core@0.40.0)(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1755,6 +1755,12 @@ packages:
 
   '@whop/api@0.0.42':
     resolution: {integrity: sha512-8146m8jnUN/cxMXzzJPNIAm0W8zYKV4q4uzM6Ghjf/ipXMiX+AkzZgRYa/FNi7YTyZJfI7xUbdH3E7f8RPOHnQ==}
+    engines: {node: 22.x, pnpm: 9.15.9}
+    peerDependencies:
+      '@auth/core': ^0.40.0
+
+  '@whop/api@0.0.50':
+    resolution: {integrity: sha512-jX4VMQAOeWqWTOsbzaF9AD8BzDcUgj9LZOauxlPgWdDv6wJVDG5udCzSRtk/0p7i298X3liw9RJL/hpadleMcA==}
     engines: {node: 22.x, pnpm: 9.15.9}
     peerDependencies:
       '@auth/core': ^0.40.0
@@ -4375,6 +4381,16 @@ snapshots:
       - debug
 
   '@whop/api@0.0.42(@auth/core@0.40.0)':
+    dependencies:
+      '@auth/core': 0.40.0
+      graphql: 16.11.0
+      graphql-request: 7.2.0(graphql@16.11.0)
+      graphql-tag: 2.12.6(graphql@16.11.0)
+      jose: 6.0.11
+      js-md5: 0.8.3
+      tiny-typed-emitter: 2.1.0
+
+  '@whop/api@0.0.50(@auth/core@0.40.0)':
     dependencies:
       '@auth/core': 0.40.0
       graphql: 16.11.0
