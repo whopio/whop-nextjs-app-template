@@ -17,12 +17,18 @@ importers:
       '@whop/react':
         specifier: 0.2.36
         version: 0.2.36(@auth/core@0.40.0)(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      chart.js:
+        specifier: ^4.5.1
+        version: 4.5.1
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: ^19.0.0
         version: 19.1.0
+      react-chartjs-2:
+        specifier: ^5.3.0
+        version: 5.3.0(chart.js@4.5.1)(react@19.1.0)
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
@@ -316,6 +322,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@kurkle/color@0.3.4':
+    resolution: {integrity: sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==}
 
   '@next/env@15.3.2':
     resolution: {integrity: sha512-xURk++7P7qR9JG1jJtLzPzf0qEvqCN0A/T3DXf8IPMKo9/6FfjxtEffRJIIew/bIL4T3C2jLLqBor8B/zVlx6g==}
@@ -1795,6 +1804,10 @@ packages:
   caniuse-lite@1.0.30001718:
     resolution: {integrity: sha512-AflseV1ahcSunK53NfEs9gFWgOEmzr0f+kaMFA4xiLZlr9Hzt7HxcSpIFcnNCUkz6R6dWKa54rUz3HUmI3nVcw==}
 
+  chart.js@4.5.1:
+    resolution: {integrity: sha512-GIjfiT9dbmHRiYi6Nl2yFCq7kkwdkp1W/lp2J99rX0yo9tgJGn3lKQATztIjb5tVtevcBtIdICNWqlq5+E8/Pw==}
+    engines: {pnpm: '>=8'}
+
   chownr@3.0.0:
     resolution: {integrity: sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==}
     engines: {node: '>=18'}
@@ -1892,8 +1905,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  graphql-request@7.2.0:
-    resolution: {integrity: sha512-0GR7eQHBFYz372u9lxS16cOtEekFlZYB2qOyq8wDvzRmdRSJ0mgUVX1tzNcIzk3G+4NY+mGtSz411wZdeDF/+A==}
+  graphql-request@7.3.1:
+    resolution: {integrity: sha512-GdinBsBVYrWzwEvOlzadrV5j8mdOc9ZT8In9QyRIZaxbhkTL08j35yNbPp96jAacYzjeD/hKKy2E2RGI7c7Yug==}
     peerDependencies:
       graphql: 14 - 16
 
@@ -2098,6 +2111,12 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  react-chartjs-2@5.3.0:
+    resolution: {integrity: sha512-UfZZFnDsERI3c3CZGxzvNJd02SHjaSJ8kgW1djn65H1KK8rehwTjyrRKOG3VTMG8wtHZ5rgAO5oTHtHi9GCCmw==}
+    peerDependencies:
+      chart.js: ^4.1.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
@@ -2479,6 +2498,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@kurkle/color@0.3.4': {}
 
   '@next/env@15.3.2': {}
 
@@ -4384,7 +4405,7 @@ snapshots:
     dependencies:
       '@auth/core': 0.40.0
       graphql: 16.11.0
-      graphql-request: 7.2.0(graphql@16.11.0)
+      graphql-request: 7.3.1(graphql@16.11.0)
       graphql-tag: 2.12.6(graphql@16.11.0)
       jose: 6.0.11
       js-md5: 0.8.3
@@ -4394,7 +4415,7 @@ snapshots:
     dependencies:
       '@auth/core': 0.40.0
       graphql: 16.11.0
-      graphql-request: 7.2.0(graphql@16.11.0)
+      graphql-request: 7.3.1(graphql@16.11.0)
       graphql-tag: 2.12.6(graphql@16.11.0)
       jose: 6.0.11
       js-md5: 0.8.3
@@ -4431,6 +4452,10 @@ snapshots:
       streamsearch: 1.1.0
 
   caniuse-lite@1.0.30001718: {}
+
+  chart.js@4.5.1:
+    dependencies:
+      '@kurkle/color': 0.3.4
 
   chownr@3.0.0: {}
 
@@ -4530,7 +4555,7 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  graphql-request@7.2.0(graphql@16.11.0):
+  graphql-request@7.3.1(graphql@16.11.0):
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.11.0)
       graphql: 16.11.0
@@ -4822,6 +4847,11 @@ snapshots:
       '@react-types/shared': 3.30.0(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+
+  react-chartjs-2@5.3.0(chart.js@4.5.1)(react@19.1.0):
+    dependencies:
+      chart.js: 4.5.1
+      react: 19.1.0
 
   react-dom@19.1.0(react@19.1.0):
     dependencies:
