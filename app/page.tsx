@@ -15,7 +15,11 @@ export default function Page() {
 				</div>
 
 				<div className="justify-center flex w-full">
-					<Link href="https://docs.whop.com/apps" className="w-full" target="_blank">
+					<Link
+						href="https://docs.whop.com/apps"
+						className="w-full"
+						target="_blank"
+					>
 						<Button variant="classic" className="w-full" size="4">
 							Developer Docs
 						</Button>

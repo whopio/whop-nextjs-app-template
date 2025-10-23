@@ -1,7 +1,7 @@
-import { whopsdk } from "@/lib/whop-sdk";
 import { waitUntil } from "@vercel/functions";
-import { Invoice } from "@whop/sdk/resources.js";
+import type { Invoice } from "@whop/sdk/resources.js";
 import type { NextRequest } from "next/server";
+import { whopsdk } from "@/lib/whop-sdk";
 
 export async function POST(request: NextRequest): Promise<Response> {
 	// Validate the webhook to ensure it's from Whop

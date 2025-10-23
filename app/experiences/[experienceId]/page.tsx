@@ -1,7 +1,7 @@
-import { whopsdk } from "@/lib/whop-sdk";
 import { Button } from "@whop/react/components";
 import { headers } from "next/headers";
 import Link from "next/link";
+import { whopsdk } from "@/lib/whop-sdk";
 
 export default async function ExperiencePage({
 	params,
@@ -16,8 +16,8 @@ export default async function ExperiencePage({
 	const [experience, user, access] = await Promise.all([
 		whopsdk.experiences.retrieve(experienceId),
 		whopsdk.users.retrieve(userId),
-		whopsdk.users.checkAccess(experienceId, {id: userId}),
-	])
+		whopsdk.users.checkAccess(experienceId, { id: userId }),
+	]);
 
 	const displayName = user.name || `@${user.username}`;
 
@@ -34,7 +34,10 @@ export default async function ExperiencePage({
 				</Link>
 			</div>
 
-			<p className="text-3 text-gray-10">Welcome to you whop app! Replace this template with your own app. To get you started, here's some helpful data you can fetch from whop.</p>
+			<p className="text-3 text-gray-10">
+				Welcome to you whop app! Replace this template with your own app. To
+				get you started, here's some helpful data you can fetch from whop.
+			</p>
 
 			<h3 className="text-6 font-bold">Experience data</h3>
 			<JsonViewer data={experience} />
