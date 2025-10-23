@@ -1,0 +1,8 @@
+{
+	"code_actions_on_format": {
+		"source.fixAll.biome": true,
+		"source.action.useSortedKeys.biome": true
+	},
+	"tab_size": 3,
+	"hard_tabs": true
+}

@@ -5,6 +5,7 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 @import "@whop/react/styles.css" layer(frosted_ui);
 
+/* biome-ignore lint/suspicious/noUnknownAtRules: this rule is imported from whop */
 @config '../tailwind.config.ts';
 
 body {

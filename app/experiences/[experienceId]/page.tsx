@@ -1,47 +1,60 @@
-import { whopSdk } from "@/lib/whop-sdk";
+import { Button } from "@whop/react/components";
 import { headers } from "next/headers";
+import Link from "next/link";
+import { whopsdk } from "@/lib/whop-sdk";
 
 export default async function ExperiencePage({
 	params,
 }: {
 	params: Promise<{ experienceId: string }>;
 }) {
-	// The headers contains the user token
-	const headersList = await headers();
-
-	// The experienceId is a path param
 	const { experienceId } = await params;
+	// Ensure the user is logged in on whop.
+	const { userId } = await whopsdk.verifyUserToken(await headers());
 
-	// The user token is in the headers
-	const { userId } = await whopSdk.verifyUserToken(headersList);
+	// Fetch the neccessary data we want from whop.
+	const [experience, user, access] = await Promise.all([
+		whopsdk.experiences.retrieve(experienceId),
+		whopsdk.users.retrieve(userId),
+		whopsdk.users.checkAccess(experienceId, { id: userId }),
+	]);
 
-	const result = await whopSdk.access.checkIfUserHasAccessToExperience({
-		userId,
-		experienceId,
-	});
-
-	const user = await whopSdk.users.getUser({ userId });
-	const experience = await whopSdk.experiences.getExperience({ experienceId });
-
-	// Either: 'admin' | 'customer' | 'no_access';
-	// 'admin' means the user is an admin of the whop, such as an owner or moderator
-	// 'customer' means the user is a common member in this whop
-	// 'no_access' means the user does not have access to the whop
-	const { accessLevel } = result;
+	const displayName = user.name || `@${user.username}`;
 
 	return (
-		<div className="flex justify-center items-center h-screen px-8">
-			<h1 className="text-xl">
-				Hi <strong>{user.name}</strong>, you{" "}
-				<strong>{result.hasAccess ? "have" : "do not have"} access</strong> to
-				this experience. Your access level to this whop is:{" "}
-				<strong>{accessLevel}</strong>. <br />
-				<br />
-				Your user ID is <strong>{userId}</strong> and your username is{" "}
-				<strong>@{user.username}</strong>.<br />
-				<br />
-				You are viewing the experience: <strong>{experience.name}</strong>
-			</h1>
+		<div className="flex flex-col p-8 gap-4">
+			<div className="flex justify-between items-center gap-4">
+				<h1 className="text-9">
+					Hi <strong>{displayName}</strong>!
+				</h1>
+				<Link href="https://docs.whop.com/apps" target="_blank">
+					<Button variant="classic" className="w-full" size="3">
+						Developer Docs
+					</Button>
+				</Link>
+			</div>
+
+			<p className="text-3 text-gray-10">
+				Welcome to you whop app! Replace this template with your own app. To
+				get you started, here's some helpful data you can fetch from whop.
+			</p>
+
+			<h3 className="text-6 font-bold">Experience data</h3>
+			<JsonViewer data={experience} />
+
+			<h3 className="text-6 font-bold">User data</h3>
+			<JsonViewer data={user} />
+
+			<h3 className="text-6 font-bold">Access data</h3>
+			<JsonViewer data={access} />
 		</div>
+	);
+}
+
+function JsonViewer({ data }: { data: any }) {
+	return (
+		<pre className="text-2 border border-gray-a4 rounded-lg p-4 bg-gray-a2 max-h-72 overflow-y-auto">
+			<code className="text-gray-10">{JSON.stringify(data, null, 2)}</code>
+		</pre>
 	);
 }
