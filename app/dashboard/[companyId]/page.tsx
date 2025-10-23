@@ -1,46 +1,60 @@
-import { whopSdk } from "@/lib/whop-sdk";
+import { Button } from "@whop/react/components";
 import { headers } from "next/headers";
+import Link from "next/link";
+import { whopsdk } from "@/lib/whop-sdk";
 
 export default async function DashboardPage({
 	params,
 }: {
 	params: Promise<{ companyId: string }>;
 }) {
-	// The headers contains the user token
-	const headersList = await headers();
-
-	// The companyId is a path param
 	const { companyId } = await params;
+	// Ensure the user is logged in on whop.
+	const { userId } = await whopsdk.verifyUserToken(await headers());
 
-	// The user token is in the headers
-	const { userId } = await whopSdk.verifyUserToken(headersList);
+	// Fetch the neccessary data we want from whop.
+	const [company, user, access] = await Promise.all([
+		whopsdk.companies.retrieve(companyId),
+		whopsdk.users.retrieve(userId),
+		whopsdk.users.checkAccess(companyId, { id: userId }),
+	]);
 
-	const result = await whopSdk.access.checkIfUserHasAccessToCompany({
-		userId,
-		companyId,
-	});
-
-	const user = await whopSdk.users.getUser({ userId });
-	const company = await whopSdk.companies.getCompany({ companyId });
-
-	// Either: 'admin' | 'no_access';
-	// 'admin' means the user is an admin of the company, such as an owner or moderator
-	// 'no_access' means the user is not an authorized member of the company
-	const { accessLevel } = result;
+	const displayName = user.name || `@${user.username}`;
 
 	return (
-		<div className="flex justify-center items-center h-screen px-8">
-			<h1 className="text-xl">
-				Hi <strong>{user.name}</strong>, you{" "}
-				<strong>{result.hasAccess ? "have" : "do not have"} access</strong> to
-				this company. Your access level to this company is:{" "}
-				<strong>{accessLevel}</strong>. <br />
-				<br />
-				Your user ID is <strong>{userId}</strong> and your username is{" "}
-				<strong>@{user.username}</strong>.<br />
-				<br />
-				You are viewing the company: <strong>{company.title}</strong>
-			</h1>
+		<div className="flex flex-col p-8 gap-4">
+			<div className="flex justify-between items-center gap-4">
+				<h1 className="text-9">
+					Hi <strong>{displayName}</strong>!
+				</h1>
+				<Link href="https://docs.whop.com/apps" target="_blank">
+					<Button variant="classic" className="w-full" size="3">
+						Developer Docs
+					</Button>
+				</Link>
+			</div>
+
+			<p className="text-3 text-gray-10">
+				Welcome to you whop app! Replace this template with your own app. To
+				get you started, here's some helpful data you can fetch from whop.
+			</p>
+
+			<h3 className="text-6 font-bold">Company data</h3>
+			<JsonViewer data={company} />
+
+			<h3 className="text-6 font-bold">User data</h3>
+			<JsonViewer data={user} />
+
+			<h3 className="text-6 font-bold">Access data</h3>
+			<JsonViewer data={access} />
 		</div>
+	);
+}
+
+function JsonViewer({ data }: { data: any }) {
+	return (
+		<pre className="text-2 border border-gray-a4 rounded-lg p-4 bg-gray-a2 max-h-72 overflow-y-auto">
+			<code className="text-gray-10">{JSON.stringify(data, null, 2)}</code>
+		</pre>
 	);
 }

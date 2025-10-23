@@ -2,15 +2,15 @@ This is a template for a whop app built in NextJS. Fork it and keep the parts yo
 
 # Whop NextJS App Template with Revenue Analytics Dashboard
 
-To run this project: 
+To run this project:
 
 1. Install dependencies with: `pnpm i`
 
 2. Create a Whop App on your [whop developer dashboard](https://whop.com/dashboard/developer/), then go to the "Hosting" section and:
 	- Ensure the "Base URL" is set to the domain you intend to deploy the site on.
 	- Ensure the "App path" is set to `/experiences/[experienceId]`
-	- Ensure the "Dashboard path" is set to `/dashboard/[companyId]` 
-	- Ensure the "Discover path" is set to `/discover` 
+	- Ensure the "Dashboard path" is set to `/dashboard/[companyId]`
+	- Ensure the "Discover path" is set to `/discover`
 
 3. Copy the environment variables from the `.env.development` into a `.env.local`. Ensure to use real values from the whop dashboard.
 
@@ -20,7 +20,7 @@ To run this project:
 
 ## Deploying
 
-1. Upload your fork / copy of this template to github. 
+1. Upload your fork / copy of this template to github.
 
 2. Go to [Vercel](https://vercel.com/new) and link the repository. Deploy your application with the environment variables from your `.env.local`
 
