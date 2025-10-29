@@ -11,7 +11,7 @@
 	"dependencies": {
 		"@vercel/functions": "^3.1.4",
 		"@whop/react": "0.3.0",
-		"@whop/sdk": "0.0.2",
+		"@whop/sdk": "0.0.3",
 		"next": "16.0.0",
 		"react": "19.2.0",
 		"react-dom": "19.2.0"
