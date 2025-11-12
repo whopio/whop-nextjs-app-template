@@ -35,7 +35,7 @@ export default async function DashboardPage({
 			</div>
 
 			<p className="text-3 text-gray-10">
-				Welcome to you whop app! Replace this template with your own app. To
+				Welcome to your whop app! Replace this template with your own app. To
 				get you started, here's some helpful data you can fetch from whop.
 			</p>
 
