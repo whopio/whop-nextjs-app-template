@@ -3,7 +3,7 @@ import type { Payment, Membership } from "@whop/sdk/resources.js";
 import type { NextRequest } from "next/server";
 import { whop } from "@/lib/whop";
 import {
-	getTierFromPlanId,
+	getTierFromPlanOrProductId,
 	upsertCompanySubscription,
 	deactivateCompanySubscription,
 } from "@/lib/tiers";
@@ -36,16 +36,29 @@ async function handleMembershipActivated(membership: Membership) {
 	console.log("[MEMBERSHIP ACTIVATED]", membership);
 
 	const planId = membership.plan?.id;
+	const productId = membership.product?.id;
 	const companyId = membership.company?.id;
-	if (!planId || !companyId) return;
 
-	const tier = getTierFromPlanId(planId);
-	if (!tier) return;
+	console.log("[SUBSCRIPTION] IDs extracted:", { planId, productId, companyId });
+
+	if (!companyId) {
+		console.log("[SUBSCRIPTION] No company ID found, skipping");
+		return;
+	}
+
+	const tier = getTierFromPlanOrProductId(planId, productId);
+
+	console.log(`[SUBSCRIPTION] Tier mapped: plan=${planId} product=${productId} → ${tier}`);
+
+	if (!tier) {
+		console.log("[SUBSCRIPTION] No matching tier for these IDs, skipping");
+		return;
+	}
 
 	await upsertCompanySubscription({
 		companyId,
 		tier,
-		planId,
+		planId: planId ?? productId ?? "unknown",
 		membershipId: membership.id,
 		userId: membership.user?.id ?? null,
 	});
@@ -57,10 +70,15 @@ async function handleMembershipDeactivated(membership: Membership) {
 	console.log("[MEMBERSHIP DEACTIVATED]", membership);
 
 	const planId = membership.plan?.id;
-	if (!planId) return;
+	const productId = membership.product?.id;
 
-	const tier = getTierFromPlanId(planId);
-	if (!tier) return;
+	console.log("[SUBSCRIPTION] Deactivation IDs:", { planId, productId });
+
+	const tier = getTierFromPlanOrProductId(planId, productId);
+	if (!tier) {
+		console.log("[SUBSCRIPTION] Not our pricing plan, skipping deactivation");
+		return;
+	}
 
 	await deactivateCompanySubscription(membership.id);
 

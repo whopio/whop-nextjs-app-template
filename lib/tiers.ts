@@ -56,6 +56,18 @@ export function getTierFromPlanId(planId: string): TierName | null {
 	return null;
 }
 
+export function getTierFromPlanOrProductId(
+	planId: string | undefined,
+	productId: string | undefined,
+): TierName | null {
+	const proId = process.env.WHOP_PRO_PLAN_ID;
+	const bizId = process.env.WHOP_BUSINESS_PLAN_ID;
+
+	if (planId === proId || productId === proId) return "pro";
+	if (planId === bizId || productId === bizId) return "business";
+	return null;
+}
+
 // ============================================================================
 // DATABASE QUERIES
 // ============================================================================
