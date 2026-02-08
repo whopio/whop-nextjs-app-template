@@ -1,7 +1,10 @@
-import { Button } from "@whop/react/components";
 import { headers } from "next/headers";
-import Link from "next/link";
-import { whopsdk } from "@/lib/whop-sdk";
+import { redirect } from "next/navigation";
+import { sql } from "@/lib/db";
+import type { Giveaway, Entry } from "@/lib/types/database";
+import { verifyUserToken } from "@/lib/whop";
+import { ExperienceClient } from "./experience-client";
+import { EmptyExperienceState } from "./components/empty-experience-state";
 
 export default async function ExperiencePage({
 	params,
@@ -9,52 +12,81 @@ export default async function ExperiencePage({
 	params: Promise<{ experienceId: string }>;
 }) {
 	const { experienceId } = await params;
-	// Ensure the user is logged in on whop.
-	const { userId } = await whopsdk.verifyUserToken(await headers());
 
-	// Fetch the neccessary data we want from whop.
-	const [experience, user, access] = await Promise.all([
-		whopsdk.experiences.retrieve(experienceId),
-		whopsdk.users.retrieve(userId),
-		whopsdk.users.checkAccess(experienceId, { id: userId }),
-	]);
+	const headersList = await headers();
+	let userId: string | undefined;
 
-	const displayName = user.name || `@${user.username}`;
+	try {
+		const result = await verifyUserToken(headersList);
+		userId = result.userId;
+	} catch {
+		redirect("/error?message=Authentication required");
+	}
+
+	if (!userId) {
+		redirect("/error?message=Authentication required");
+	}
+
+	// Fetch active giveaway for this experience
+	const giveawayRows = await sql`
+		SELECT * FROM giveaways
+		WHERE experience_id = ${experienceId} AND status = 'active'
+		LIMIT 1
+	`;
+
+	if (giveawayRows.length === 0) {
+		return <EmptyExperienceState />;
+	}
+
+	const giveaway = giveawayRows[0] as unknown as Giveaway;
+
+	const now = new Date();
+	const startDate = new Date(giveaway.start_date);
+	const endDate = new Date(giveaway.end_date);
+	const isActive =
+		giveaway.status === "active" && now >= startDate && now <= endDate;
+
+	if (!isActive && giveaway.status !== "active") {
+		return <EmptyExperienceState />;
+	}
+
+	// Check if user has already entered
+	const userEntryRows = await sql`
+		SELECT id, referral_code, entry_count, referral_count
+		FROM entries
+		WHERE giveaway_id = ${giveaway.id} AND user_id = ${userId}
+	`;
+
+	const userEntry = userEntryRows.length > 0
+		? (userEntryRows[0] as unknown as Pick<Entry, "id" | "referral_code" | "entry_count" | "referral_count">)
+		: null;
+
+	// Get total entry count
+	const countResult = await sql`
+		SELECT COUNT(*)::int AS count FROM entries WHERE giveaway_id = ${giveaway.id}
+	`;
+	const entryCount = countResult[0]?.count ?? 0;
 
 	return (
-		<div className="flex flex-col p-8 gap-4">
-			<div className="flex justify-between items-center gap-4">
-				<h1 className="text-9">
-					Hi <strong>{displayName}</strong>!
-				</h1>
-				<Link href="https://docs.whop.com/apps" target="_blank">
-					<Button variant="classic" className="w-full" size="3">
-						Developer Docs
-					</Button>
-				</Link>
-			</div>
-
-			<p className="text-3 text-gray-10">
-				Welcome to you whop app! Replace this template with your own app. To
-				get you started, here's some helpful data you can fetch from whop.
-			</p>
-
-			<h3 className="text-6 font-bold">Experience data</h3>
-			<JsonViewer data={experience} />
-
-			<h3 className="text-6 font-bold">User data</h3>
-			<JsonViewer data={user} />
-
-			<h3 className="text-6 font-bold">Access data</h3>
-			<JsonViewer data={access} />
-		</div>
-	);
-}
-
-function JsonViewer({ data }: { data: any }) {
-	return (
-		<pre className="text-2 border border-gray-a4 rounded-lg p-4 bg-gray-a2 max-h-72 overflow-y-auto">
-			<code className="text-gray-10">{JSON.stringify(data, null, 2)}</code>
-		</pre>
+		<ExperienceClient
+			giveaway={{
+				id: giveaway.id,
+				title: giveaway.title,
+				description: giveaway.description,
+				end_date: giveaway.end_date,
+				prize_details: giveaway.prize_details,
+			}}
+			userEntry={
+				userEntry
+					? {
+							id: userEntry.id,
+							referralCode: userEntry.referral_code,
+							entryCount: userEntry.entry_count,
+							referralCount: userEntry.referral_count,
+						}
+					: null
+			}
+			totalEntries={entryCount}
+		/>
 	);
 }

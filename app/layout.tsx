@@ -1,6 +1,7 @@
 import { WhopApp } from "@whop/react/components";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Whop App",
-	description: "My Whop App",
+	title: "Giveaway Master",
+	description: "Create viral giveaways with referral tracking on Whop",
 };
 
 export default function RootLayout({
@@ -29,6 +30,7 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<WhopApp>{children}</WhopApp>
+				<Toaster position="top-right" richColors />
 			</body>
 		</html>
 	);

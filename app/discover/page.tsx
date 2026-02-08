@@ -1,111 +1,129 @@
+import { Button } from "@whop/react/components";
+import Link from "next/link";
+
 export default function DiscoverPage() {
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+		<div className="min-h-screen bg-gray-1">
 			<div className="max-w-4xl mx-auto px-4 py-16">
-				{/* Title */}
-				<h1 className="text-5xl font-bold text-gray-900 mb-6 text-center">
-					Discover your app
-				</h1>
-				{/* Main Description Card */}
-				<div className="bg-white rounded-xl p-8 shadow-md text-center mb-16">
-					<p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">
-						This is your app's discover page—showcase what your app does
-						and how it helps creators.
+				{/* Hero */}
+				<div className="text-center mb-16">
+					<div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-a3 to-purple-a3 flex items-center justify-center">
+						<svg
+							className="w-10 h-10 text-blue-9"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={1.5}
+								d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+							/>
+						</svg>
+					</div>
+					<h1 className="text-5xl font-bold text-gray-12 mb-4">
+						Giveaway Master
+					</h1>
+					<p className="text-xl text-gray-10 max-w-2xl mx-auto mb-8">
+						Create viral giveaways with built-in referral tracking.
+						Grow your audience exponentially through social sharing
+						and referral incentives.
 					</p>
-					<p className="text-base text-gray-500 max-w-2xl mx-auto mb-2">
-						Share real success stories, link to thriving Whop communities
-						using your app, and add referral links to earn affiliate fees
-						when people install your app.
-					</p>
-					<p className="text-sm text-gray-400 max-w-2xl mx-auto">
-						💡 <strong>Tip:</strong> Clearly explain your app's value
-						proposition and how it helps creators make money or grow their
-						communities.
-					</p>
+					<Link href="https://whop.com/apps" target="_blank">
+						<Button variant="classic" size="4">
+							Install Giveaway Master
+						</Button>
+					</Link>
 				</div>
 
-				{/* Pro Tips Section */}
-				<div className="grid md:grid-cols-2 gap-6 mb-10">
-					<div className="bg-white rounded-xl p-6 shadow-md flex flex-col gap-2">
-						<h3 className="font-semibold text-gray-900">
-							Showcase Real Success
+				{/* Features */}
+				<div className="grid md:grid-cols-3 gap-6 mb-16">
+					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6">
+						<h3 className="text-lg font-semibold text-gray-12 mb-2">
+							Viral Referral System
 						</h3>
-						<p className="text-sm text-gray-600">
-							Link to real Whop communities using your app, with revenue
-							and member stats.
+						<p className="text-sm text-gray-10">
+							Each participant gets a unique referral link. More
+							referrals = more entries = higher chance of
+							winning. Growth on autopilot.
 						</p>
 					</div>
-					<div className="bg-white rounded-xl p-6 shadow-md flex flex-col gap-2">
-						<h3 className="font-semibold text-gray-900">
-							Include Referral Links
+					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6">
+						<h3 className="text-lg font-semibold text-gray-12 mb-2">
+							Social Growth Actions
 						</h3>
-						<p className="text-sm text-gray-600">
-							Add <code>?a=your_app_id</code> to Whop links to earn
-							affiliate commissions.
+						<p className="text-sm text-gray-10">
+							Require Twitter follows, Discord joins, YouTube
+							subs, and more as entry actions. Grow every channel
+							at once.
+						</p>
+					</div>
+					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6">
+						<h3 className="text-lg font-semibold text-gray-12 mb-2">
+							Fair Winner Selection
+						</h3>
+						<p className="text-sm text-gray-10">
+							Weighted random selection rewards active
+							participants. More entries from referrals means
+							better odds.
 						</p>
 					</div>
 				</div>
 
-				<h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-					Examples of Success Stories
-				</h2>
-
-				{/* Main Content Cards */}
-				<div className="grid md:grid-cols-2 gap-6">
-					{/* Success Story Card 1 */}
-					<div className="bg-white rounded-xl p-6 shadow-md flex flex-col justify-between">
-						<div>
-							<h3 className="text-lg font-bold text-gray-900 mb-1">
-								CryptoKings
-							</h3>
-							<p className="text-xs text-gray-500 mb-2">
-								Trading Community
-							</p>
-							<p className="text-gray-700 mb-4 text-sm">
-								"Grew to{" "}
-								<span className="font-bold text-blue-600">
-									2,500+ members
-								</span>{" "}
-								and{" "}
-								<span className="font-bold text-blue-600">
-									$18,000+/mo
-								</span>{" "}
-								with automated signals. Members love the real-time
-								alerts!"
-							</p>
-						</div>
-						<a
-							href="https://whop.com/cryptokings/?a=your_app_id"
-							className="mt-auto block w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-center text-sm"
-						>
-							Visit CryptoKings
-						</a>
+				{/* How it works */}
+				<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-8 mb-16">
+					<h2 className="text-2xl font-bold text-gray-12 mb-6 text-center">
+						How It Works
+					</h2>
+					<div className="grid md:grid-cols-4 gap-6">
+						{[
+							{
+								step: "1",
+								title: "Create",
+								desc: "Set up a giveaway with prize details and entry rules",
+							},
+							{
+								step: "2",
+								title: "Share",
+								desc: "Participants enter and get unique referral links",
+							},
+							{
+								step: "3",
+								title: "Grow",
+								desc: "Referrals earn bonus entries, creating viral loops",
+							},
+							{
+								step: "4",
+								title: "Pick",
+								desc: "Select winners with fair weighted random selection",
+							},
+						].map((item) => (
+							<div key={item.step} className="text-center">
+								<div className="w-10 h-10 mx-auto mb-3 rounded-full bg-blue-a3 flex items-center justify-center text-blue-11 font-bold">
+									{item.step}
+								</div>
+								<h3 className="font-semibold text-gray-12 mb-1">
+									{item.title}
+								</h3>
+								<p className="text-xs text-gray-10">
+									{item.desc}
+								</p>
+							</div>
+						))}
 					</div>
+				</div>
 
-					{/* Success Story Card 2 */}
-					<div className="bg-white rounded-xl p-6 shadow-md flex flex-col justify-between">
-						<div>
-							<h3 className="text-lg font-bold text-gray-900 mb-1">
-								SignalPro
-							</h3>
-							<p className="text-xs text-gray-500 mb-2">
-								Premium Signals
-							</p>
-							<p className="text-gray-700 mb-4 text-sm">
-								"Retention jumped to{" "}
-								<span className="font-bold text-blue-600">92%</span>.
-								Affiliate program brought in{" "}
-								<span className="font-bold text-blue-600">$4,000+</span>{" "}
-								last quarter."
-							</p>
-						</div>
-						<a
-							href="https://whop.com/signalpro/?app=your_app_id"
-							className="mt-auto block w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-center text-sm"
-						>
-							Visit SignalPro
-						</a>
-					</div>
+				{/* CTA */}
+				<div className="text-center">
+					<p className="text-gray-10 mb-4">
+						Ready to grow your audience with viral giveaways?
+					</p>
+					<Link href="https://whop.com/apps" target="_blank">
+						<Button variant="classic" size="3">
+							Get Started Free
+						</Button>
+					</Link>
 				</div>
 			</div>
 		</div>
