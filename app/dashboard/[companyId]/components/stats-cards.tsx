@@ -16,7 +16,7 @@ interface StatCardProps {
 
 function StatCard({ label, value, icon }: StatCardProps) {
 	return (
-		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-5 flex flex-col gap-3">
+		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-6 flex flex-col gap-3">
 			<div className="flex items-center justify-between">
 				<Text size="2" className="text-gray-10">
 					{label}
@@ -34,7 +34,7 @@ function StatCard({ label, value, icon }: StatCardProps) {
 
 function PlanCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 	return (
-		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-5 flex flex-col gap-3">
+		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-6 flex flex-col gap-3">
 			<div className="flex items-center justify-between">
 				<Text size="2" className="text-gray-10">
 					Current Plan
@@ -79,7 +79,7 @@ function ActiveCampaignsCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 	else if (usage >= 0.8) barColor = "bg-orange-9";
 
 	return (
-		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-5 flex flex-col gap-3">
+		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-6 flex flex-col gap-3">
 			<div className="flex items-center justify-between">
 				<Text size="2" className="text-gray-10">
 					Active Campaigns
@@ -124,7 +124,7 @@ function ActiveCampaignsCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 
 export function StatsCards({ stats, tierInfo }: StatsCardsProps) {
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
 			<PlanCard tierInfo={tierInfo} />
 			<StatCard
 				label="Total Giveaways"

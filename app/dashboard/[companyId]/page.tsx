@@ -32,14 +32,14 @@ export default async function DashboardPage({
 		const hasGiveaways = giveaways.length > 0;
 
 		return (
-			<div className="space-y-6">
+			<div className="space-y-8">
 				{/* Page Header */}
-				<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-					<div>
-						<Text size="6" weight="bold" className="text-gray-12">
+				<div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+					<div className="space-y-2">
+						<Text size="7" weight="bold" className="text-gray-12">
 							Dashboard
 						</Text>
-						<Text size="3" className="text-gray-10 mt-1">
+						<Text size="3" className="text-gray-11">
 							Manage your giveaway campaigns
 						</Text>
 					</div>
@@ -64,7 +64,7 @@ export default async function DashboardPage({
 
 				{/* Quick Tips */}
 				{hasGiveaways && (
-					<div className="bg-gray-1 border border-gray-a4 rounded-xl p-6">
+					<div className="bg-gray-1 border border-gray-a4 rounded-xl p-7">
 						<div className="flex items-start gap-4">
 							<div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-a3 flex items-center justify-center text-blue-9">
 								<svg
