@@ -25,20 +25,30 @@ export interface GiveawayWithStats extends Giveaway {
 export async function getDashboardStats(
 	companyId: string,
 ): Promise<DashboardStats> {
-	const [giveawaysResult, activeResult, entriesResult, winnersResult] =
-		await Promise.all([
-			sql`SELECT COUNT(*)::int AS count FROM giveaways WHERE company_id = ${companyId}`,
-			sql`SELECT COUNT(*)::int AS count FROM giveaways WHERE company_id = ${companyId} AND status = 'active'`,
-			sql`SELECT COUNT(*)::int AS count FROM entries e INNER JOIN giveaways g ON g.id = e.giveaway_id WHERE g.company_id = ${companyId}`,
-			sql`SELECT COUNT(*)::int AS count FROM winners w INNER JOIN giveaways g ON g.id = w.giveaway_id WHERE g.company_id = ${companyId}`,
-		]);
+	try {
+		const [giveawaysResult, activeResult, entriesResult, winnersResult] =
+			await Promise.all([
+				sql`SELECT COUNT(*)::int AS count FROM giveaways WHERE company_id = ${companyId}`,
+				sql`SELECT COUNT(*)::int AS count FROM giveaways WHERE company_id = ${companyId} AND status = 'active'`,
+				sql`SELECT COUNT(*)::int AS count FROM entries e INNER JOIN giveaways g ON g.id = e.giveaway_id WHERE g.company_id = ${companyId}`,
+				sql`SELECT COUNT(*)::int AS count FROM winners w INNER JOIN giveaways g ON g.id = w.giveaway_id WHERE g.company_id = ${companyId}`,
+			]);
 
-	return {
-		totalGiveaways: giveawaysResult[0]?.count ?? 0,
-		activeGiveaways: activeResult[0]?.count ?? 0,
-		totalEntries: entriesResult[0]?.count ?? 0,
-		totalWinners: winnersResult[0]?.count ?? 0,
-	};
+		return {
+			totalGiveaways: giveawaysResult[0]?.count ?? 0,
+			activeGiveaways: activeResult[0]?.count ?? 0,
+			totalEntries: entriesResult[0]?.count ?? 0,
+			totalWinners: winnersResult[0]?.count ?? 0,
+		};
+	} catch (error) {
+		console.error("[getDashboardStats] Database error for company:", companyId, error);
+		return {
+			totalGiveaways: 0,
+			activeGiveaways: 0,
+			totalEntries: 0,
+			totalWinners: 0,
+		};
+	}
 }
 
 /**

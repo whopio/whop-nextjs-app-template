@@ -84,6 +84,7 @@ export async function requireCompanyAccess(
 
 	try {
 		const access = await whop.users.checkAccess(companyId, { id: userId });
+		console.log("[Auth] checkAccess result for user:", userId, "company:", companyId, JSON.stringify(access));
 
 		const hasAccess = access.has_access === true;
 		const accessLevel = access.access_level;

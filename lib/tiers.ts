@@ -73,37 +73,52 @@ export function getTierFromPlanOrProductId(
 // ============================================================================
 
 export async function getCompanyTier(companyId: string): Promise<TierName> {
-	const rows = await sql`
-		SELECT tier FROM company_subscriptions
-		WHERE company_id = ${companyId} AND status = 'active'
-	`;
-	if (rows.length === 0) return "free";
-	return rows[0].tier as TierName;
+	try {
+		const rows = await sql`
+			SELECT tier FROM company_subscriptions
+			WHERE company_id = ${companyId} AND status = 'active'
+		`;
+		if (rows.length === 0) return "free";
+		return rows[0].tier as TierName;
+	} catch (error) {
+		console.error("[getCompanyTier] Database error for company:", companyId, error);
+		return "free";
+	}
 }
 
 export async function getCompanyTierInfo(
 	companyId: string,
 ): Promise<CompanyTierInfo> {
-	const [tierRows, activeRows] = await Promise.all([
-		sql`
-			SELECT tier FROM company_subscriptions
-			WHERE company_id = ${companyId} AND status = 'active'
-		`,
-		sql`
-			SELECT COUNT(*)::int AS count FROM giveaways
-			WHERE company_id = ${companyId} AND status = 'active'
-		`,
-	]);
+	try {
+		const [tierRows, activeRows] = await Promise.all([
+			sql`
+				SELECT tier FROM company_subscriptions
+				WHERE company_id = ${companyId} AND status = 'active'
+			`,
+			sql`
+				SELECT COUNT(*)::int AS count FROM giveaways
+				WHERE company_id = ${companyId} AND status = 'active'
+			`,
+		]);
 
-	const tier: TierName =
-		tierRows.length > 0 ? (tierRows[0].tier as TierName) : "free";
+		const tier: TierName =
+			tierRows.length > 0 ? (tierRows[0].tier as TierName) : "free";
 
-	return {
-		tier,
-		limits: TIER_LIMITS[tier],
-		display: TIER_DISPLAY[tier],
-		activeGiveaways: activeRows[0]?.count ?? 0,
-	};
+		return {
+			tier,
+			limits: TIER_LIMITS[tier],
+			display: TIER_DISPLAY[tier],
+			activeGiveaways: activeRows[0]?.count ?? 0,
+		};
+	} catch (error) {
+		console.error("[getCompanyTierInfo] Database error for company:", companyId, error);
+		return {
+			tier: "free",
+			limits: TIER_LIMITS.free,
+			display: TIER_DISPLAY.free,
+			activeGiveaways: 0,
+		};
+	}
 }
 
 export async function upsertCompanySubscription(params: {

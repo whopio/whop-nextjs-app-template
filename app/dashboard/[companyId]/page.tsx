@@ -1,5 +1,4 @@
 import { Text } from "@whop/react/components";
-import { getDashboardAuthContext } from "@/lib/auth";
 import { getDashboardStats, getCompanyGiveaways } from "@/lib/data";
 import { getCompanyTierInfo } from "@/lib/tiers";
 import { StatsCards } from "./components/stats-cards";
@@ -15,8 +14,7 @@ export default async function DashboardPage({
 }) {
 	const { companyId } = await params;
 
-	const { company } = await getDashboardAuthContext(companyId);
-
+	// Auth is already verified in layout.tsx — no need to call again
 	const [stats, giveaways, tierInfo] = await Promise.all([
 		getDashboardStats(companyId),
 		getCompanyGiveaways(companyId),
@@ -33,9 +31,9 @@ export default async function DashboardPage({
 					<Text size="6" weight="bold" className="text-gray-12">
 						Dashboard
 					</Text>
-					<Text size="3" className="text-gray-10 mt-1">
-						Manage your giveaway campaigns for {company.title}
-					</Text>
+				<Text size="3" className="text-gray-10 mt-1">
+					Manage your giveaway campaigns
+				</Text>
 				</div>
 				<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} />
 			</div>

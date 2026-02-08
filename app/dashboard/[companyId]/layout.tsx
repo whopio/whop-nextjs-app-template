@@ -18,6 +18,7 @@ export default async function DashboardLayout({
 	try {
 		authContext = await getDashboardAuthContext(companyId);
 	} catch (error) {
+		console.error("[Dashboard Layout] Auth error for company:", companyId, error);
 		handleAuthError(error);
 	}
 
