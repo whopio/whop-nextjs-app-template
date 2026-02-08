@@ -18,10 +18,6 @@ export function DashboardNav({ companyId }: DashboardNavProps) {
 
 	const navItems: NavItem[] = [
 		{ label: "Overview", href: basePath },
-		{ label: "Giveaways", href: `${basePath}/giveaways` },
-		{ label: "Entries", href: `${basePath}/entries` },
-		{ label: "Analytics", href: `${basePath}/analytics` },
-		{ label: "Settings", href: `${basePath}/settings` },
 	];
 
 	return (

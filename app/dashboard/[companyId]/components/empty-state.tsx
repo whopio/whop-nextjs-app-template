@@ -1,11 +1,13 @@
-import Link from "next/link";
-import { Text, Button } from "@whop/react/components";
+import { Text } from "@whop/react/components";
+import { CreateGiveawayDialog } from "./create-giveaway-dialog";
+import type { CompanyTierInfo } from "@/lib/tiers";
 
 interface EmptyStateProps {
 	companyId: string;
+	tierInfo: CompanyTierInfo;
 }
 
-export function EmptyState({ companyId }: EmptyStateProps) {
+export function EmptyState({ companyId, tierInfo }: EmptyStateProps) {
 	return (
 		<div className="bg-gray-1 border border-gray-a4 rounded-xl overflow-hidden">
 			<div className="px-8 py-12 text-center">
@@ -23,14 +25,7 @@ export function EmptyState({ companyId }: EmptyStateProps) {
 					Participants share to earn more entries, creating organic viral growth.
 				</Text>
 
-				<Link href={`/dashboard/${companyId}/giveaways/new`}>
-					<Button variant="classic" size="3">
-						<svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-						</svg>
-						Create Giveaway
-					</Button>
-				</Link>
+				<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} />
 			</div>
 
 			<div className="border-t border-gray-a4 bg-gray-a2 px-8 py-6">

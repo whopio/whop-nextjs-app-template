@@ -53,7 +53,7 @@ export default async function DashboardPage({
 			{hasGiveaways ? (
 				<GiveawaysTable giveaways={giveaways} companyId={companyId} />
 			) : (
-				<EmptyState companyId={companyId} />
+				<EmptyState companyId={companyId} tierInfo={tierInfo} />
 			)}
 
 			{/* Quick Tips */}
