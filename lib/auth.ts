@@ -86,24 +86,30 @@ export async function requireCompanyAccess(
 		const access = await whop.users.checkAccess(companyId, { id: userId });
 
 		const hasAccess = access.has_access === true;
-		const isAdmin =
-			(access as any).highest_role === "admin" ||
-			(access as any).role === "admin";
-		const isOwner =
-			(access as any).highest_role === "owner" ||
-			(access as any).role === "owner";
+		const accessLevel = access.access_level;
+		const isAdmin = accessLevel === "admin";
+		const isCustomer = accessLevel === "customer";
 
-		if (!hasAccess || (!isAdmin && !isOwner)) {
+		if (!hasAccess || (!isAdmin && !isCustomer)) {
+			// no_access or has_access is false
 			throw new AuthError(
 				"You don't have permission to access this dashboard",
 				"ACCESS_DENIED",
 			);
 		}
 
+		// Only admins (which includes owners) can access the dashboard
+		if (!isAdmin) {
+			throw new AuthError(
+				"You need admin or owner access to this company",
+				"ACCESS_DENIED",
+			);
+		}
+
 		return {
 			hasAccess: true,
-			isAdmin,
-			isOwner,
+			isAdmin: true,
+			isOwner: isAdmin, // Whop SDK doesn't distinguish owner from admin — both get 'admin' access_level
 			companyId,
 			userId,
 		};
