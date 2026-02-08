@@ -3,18 +3,23 @@
 	"version": "0.2.0",
 	"private": true,
 	"scripts": {
-		"dev": "whop-proxy --command 'next dev --turbopack'",
+		"dev": "whop-proxy --command \"next dev --turbopack\"",
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome lint"
 	},
 	"dependencies": {
+		"@supabase/supabase-js": "^2.95.3",
 		"@vercel/functions": "^3.1.4",
 		"@whop/react": "0.3.0",
 		"@whop/sdk": "0.0.3",
+		"date-fns": "^4.1.0",
+		"framer-motion": "^12.33.0",
+		"lucide-react": "^0.563.0",
 		"next": "16.1.1",
 		"react": "19.2.0",
-		"react-dom": "19.2.0"
+		"react-dom": "19.2.0",
+		"recharts": "^3.7.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.6",
@@ -22,7 +27,7 @@
 		"@types/node": "^20.19.21",
 		"@types/react": "19.2.2",
 		"@types/react-dom": "19.2.2",
-		"@whop-apps/dev-proxy": "0.0.1-canary.117",
+		"@whop-apps/dev-proxy": "^0.0.1-canary.117",
 		"dotenv-cli": "^10.0.0",
 		"tailwindcss": "^4.1.14",
 		"typescript": "^5.9.3"
