@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { Button, Text, Dialog } from "@whop/react/components";
 import { toast } from "sonner";
 import {
@@ -25,6 +26,7 @@ export function CreateGiveawayDialog({
 	companyId,
 	tierInfo,
 }: CreateGiveawayDialogProps) {
+	const router = useRouter();
 	const isAtLimit =
 		tierInfo.limits.maxActiveGiveaways !== Number.MAX_SAFE_INTEGER &&
 		tierInfo.activeGiveaways >= tierInfo.limits.maxActiveGiveaways;
@@ -108,6 +110,7 @@ export function CreateGiveawayDialog({
 				});
 				resetForm();
 				setOpen(false);
+				router.refresh();
 			} else {
 				toast.error(result.error || "Failed to create giveaway");
 			}

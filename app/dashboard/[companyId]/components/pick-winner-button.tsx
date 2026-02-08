@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { Button, Dialog, Text } from "@whop/react/components";
 import { toast } from "sonner";
 import { pickWinner } from "@/lib/actions/giveaway-actions";
@@ -22,6 +23,7 @@ export function PickWinnerButton({
 	totalWinnerSlots,
 	hasEntries,
 }: PickWinnerButtonProps) {
+	const router = useRouter();
 	const [open, setOpen] = useState(false);
 	const [isPending, startTransition] = useTransition();
 	const [winner, setWinner] = useState<{ userId: string } | null>(null);
@@ -46,6 +48,7 @@ export function PickWinnerButton({
 	const handleClose = () => {
 		setOpen(false);
 		setWinner(null);
+		router.refresh();
 	};
 
 	if (!canPickMore) {

@@ -2,7 +2,6 @@
 
 import { z } from "zod";
 import { headers } from "next/headers";
-import { revalidatePath } from "next/cache";
 import { sql, generateReferralCode, selectWeightedRandomWinner } from "@/lib/db";
 import { verifyUserToken } from "@/lib/whop";
 import { getCompanyTier, TIER_LIMITS } from "@/lib/tiers";
@@ -155,8 +154,6 @@ export async function enterGiveaway(
 
 			const entry = inserted[0];
 
-			revalidatePath(`/experiences/${giveawayId}`);
-
 			return {
 				success: true,
 				data: {
@@ -246,8 +243,6 @@ export async function createGiveaway(
 		`;
 
 		const newGiveaway = inserted[0];
-
-		revalidatePath(`/dashboard/${companyId}`);
 
 		return {
 			success: true,
@@ -353,8 +348,6 @@ export async function pickWinner(
 		`;
 
 		const winner = winnerResult[0];
-
-		revalidatePath(`/dashboard/${companyId}`);
 
 		return {
 			success: true,
