@@ -26,7 +26,7 @@ function StatusBadge({ status }: { status: GiveawayStatus }) {
 
 	return (
 		<span
-			className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${styles[status]}`}
+			className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border ${styles[status]}`}
 		>
 			{status === "active" && (
 				<span className="w-1.5 h-1.5 rounded-full bg-green-9 mr-1.5 animate-pulse" />
@@ -45,10 +45,10 @@ function GiveawayRow({
 }) {
 	return (
 		<tr className="border-b border-gray-a4 hover:bg-gray-a2 transition-colors">
-			<td className="px-5 py-4">
+			<td className="px-6 py-4">
 				<Text
 					size="3"
-					weight="medium"
+					weight="semibold"
 					className="text-gray-12"
 				>
 					{giveaway.title}
@@ -59,25 +59,25 @@ function GiveawayRow({
 					</Text>
 				)}
 			</td>
-			<td className="px-5 py-4">
+			<td className="px-6 py-4">
 				<StatusBadge status={giveaway.status} />
 			</td>
-			<td className="px-5 py-4">
-				<Text size="2" className="text-gray-11">
+			<td className="px-6 py-4">
+				<Text size="2" className="text-gray-10">
 					{formatDateRange(giveaway.start_date, giveaway.end_date)}
 				</Text>
 			</td>
-			<td className="px-5 py-4 text-center">
-				<Text size="3" weight="medium" className="text-gray-12">
+			<td className="px-6 py-4 text-center">
+				<Text size="3" weight="semibold" className="text-gray-12">
 					{formatNumber(giveaway.entries_count)}
 				</Text>
 			</td>
-			<td className="px-5 py-4 text-center">
-				<Text size="3" weight="medium" className="text-gray-12">
+			<td className="px-6 py-4 text-center">
+				<Text size="3" weight="semibold" className="text-gray-12">
 					{giveaway.winners_count} / {giveaway.winner_count}
 				</Text>
 			</td>
-			<td className="px-5 py-4">
+			<td className="px-6 py-4">
 				<div className="flex items-center justify-end gap-2">
 					{giveaway.status === "ended" && (
 						<PickWinnerButton
@@ -97,12 +97,12 @@ function GiveawayRow({
 
 export function GiveawaysTable({ giveaways, companyId }: GiveawaysTableProps) {
 	return (
-		<div className="bg-gray-1 border border-gray-a4 rounded-xl overflow-hidden">
-			<div className="px-5 py-5 border-b border-gray-a4 flex items-center justify-between">
+		<div className="bg-gray-1 border border-gray-a4 rounded-2xl overflow-hidden shadow-sm">
+			<div className="px-6 py-5 border-b border-gray-a4 flex items-center justify-between">
 				<Text size="5" weight="semibold" className="text-gray-12">
 					Your Giveaways
 				</Text>
-				<Text size="2" className="text-gray-11">
+				<Text size="1" className="text-gray-9 uppercase tracking-wide">
 					{giveaways.length} total
 				</Text>
 			</div>
@@ -110,23 +110,35 @@ export function GiveawaysTable({ giveaways, companyId }: GiveawaysTableProps) {
 				<table className="w-full">
 					<thead>
 						<tr className="border-b border-gray-a4 bg-gray-a2">
-							<th className="px-5 py-3 text-left">
-								<Text size="2" weight="medium" className="text-gray-11">Name</Text>
+							<th className="px-6 py-3 text-left">
+								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+									Name
+								</Text>
 							</th>
-							<th className="px-5 py-3 text-left">
-								<Text size="2" weight="medium" className="text-gray-11">Status</Text>
+							<th className="px-6 py-3 text-left">
+								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+									Status
+								</Text>
 							</th>
-							<th className="px-5 py-3 text-left">
-								<Text size="2" weight="medium" className="text-gray-11">Duration</Text>
+							<th className="px-6 py-3 text-left">
+								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+									Duration
+								</Text>
 							</th>
-							<th className="px-5 py-3 text-center">
-								<Text size="2" weight="medium" className="text-gray-11">Entries</Text>
+							<th className="px-6 py-3 text-center">
+								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+									Entries
+								</Text>
 							</th>
-							<th className="px-5 py-3 text-center">
-								<Text size="2" weight="medium" className="text-gray-11">Winners</Text>
+							<th className="px-6 py-3 text-center">
+								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+									Winners
+								</Text>
 							</th>
-							<th className="px-5 py-3 text-right">
-								<Text size="2" weight="medium" className="text-gray-11">Actions</Text>
+							<th className="px-6 py-3 text-right">
+								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+									Actions
+								</Text>
 							</th>
 						</tr>
 					</thead>

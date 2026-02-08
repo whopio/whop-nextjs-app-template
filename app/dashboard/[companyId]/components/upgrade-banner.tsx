@@ -2,19 +2,24 @@
 
 import { Text } from "@whop/react/components";
 import type { TierName } from "@/lib/tiers";
+import { UpgradeButton } from "./upgrade-button";
 
 interface UpgradeBannerProps {
 	currentTier: TierName;
+	upgradeUrl?: string | null;
 }
 
-export function UpgradeBanner({ currentTier }: UpgradeBannerProps) {
+export function UpgradeBanner({ currentTier, upgradeUrl }: UpgradeBannerProps) {
 	const nextTier = currentTier === "free" ? "Pro" : "Business";
 	const nextPrice = currentTier === "free" ? "$14.99/mo" : "$39.99/mo";
 
 	return (
-		<div className="relative overflow-hidden rounded-xl border border-blue-a6 bg-gradient-to-r from-blue-a3 to-purple-a3 p-6">
+		<div className="relative overflow-hidden rounded-2xl border border-blue-a6 bg-gradient-to-r from-blue-a3 to-purple-a3 p-7 shadow-sm">
 			<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
 				<div className="space-y-2">
+					<Text size="1" className="text-blue-11 uppercase tracking-wide">
+						Plan limit reached
+					</Text>
 					<Text size="4" weight="bold" className="text-gray-12">
 						You've hit your plan limit
 					</Text>
@@ -23,14 +28,16 @@ export function UpgradeBanner({ currentTier }: UpgradeBannerProps) {
 						giveaways and features.
 					</Text>
 				</div>
-				<a
-					href="https://whop.com/marketplace"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-blue-9 text-white text-sm font-medium hover:bg-blue-10 transition-colors shrink-0"
-				>
-					Upgrade to {nextTier}
-				</a>
+				{upgradeUrl ? (
+					<UpgradeButton
+						upgradeUrl={upgradeUrl}
+						label={`Upgrade to ${nextTier}`}
+					/>
+				) : (
+					<span className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gray-a6 text-gray-11 text-sm font-semibold shadow-sm shrink-0 cursor-not-allowed">
+						Upgrade unavailable
+					</span>
+				)}
 			</div>
 		</div>
 	);

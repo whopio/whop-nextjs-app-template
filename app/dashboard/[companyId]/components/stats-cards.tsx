@@ -16,16 +16,16 @@ interface StatCardProps {
 
 function StatCard({ label, value, icon }: StatCardProps) {
 	return (
-		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-6 flex flex-col gap-3">
+		<div className="bg-gray-a2 border border-gray-a4 rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
 			<div className="flex items-center justify-between">
-				<Text size="2" className="text-gray-10">
+				<Text size="1" className="text-gray-9 uppercase tracking-wide">
 					{label}
 				</Text>
-				<div className="w-9 h-9 rounded-lg bg-gray-a3 flex items-center justify-center text-gray-11">
+				<div className="w-10 h-10 rounded-full bg-gray-a3 flex items-center justify-center text-gray-11">
 					{icon}
 				</div>
 			</div>
-			<Text size="7" weight="bold" className="text-gray-12">
+			<Text size="7" weight="bold" className="text-gray-12 tracking-tight">
 				{formatNumber(value)}
 			</Text>
 		</div>
@@ -34,12 +34,12 @@ function StatCard({ label, value, icon }: StatCardProps) {
 
 function PlanCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 	return (
-		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-6 flex flex-col gap-3">
+		<div className="bg-gray-a2 border border-gray-a4 rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
 			<div className="flex items-center justify-between">
-				<Text size="2" className="text-gray-10">
+				<Text size="1" className="text-gray-9 uppercase tracking-wide">
 					Current Plan
 				</Text>
-				<div className="w-9 h-9 rounded-lg bg-blue-a3 flex items-center justify-center text-blue-11">
+				<div className="w-10 h-10 rounded-full bg-blue-a3 flex items-center justify-center text-blue-11">
 					<svg
 						className="w-5 h-5"
 						fill="none"
@@ -55,8 +55,8 @@ function PlanCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 					</svg>
 				</div>
 			</div>
-			<div>
-				<Text size="7" weight="bold" className="text-gray-12">
+			<div className="space-y-1">
+				<Text size="6" weight="bold" className="text-gray-12 tracking-tight">
 					{tierInfo.display.label}
 				</Text>
 				<Text size="2" className="text-gray-10">
@@ -79,12 +79,12 @@ function ActiveCampaignsCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 	else if (usage >= 0.8) barColor = "bg-orange-9";
 
 	return (
-		<div className="bg-gray-1 border border-gray-a4 rounded-xl p-6 flex flex-col gap-3">
+		<div className="bg-gray-a2 border border-gray-a4 rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
 			<div className="flex items-center justify-between">
-				<Text size="2" className="text-gray-10">
+				<Text size="1" className="text-gray-9 uppercase tracking-wide">
 					Active Campaigns
 				</Text>
-				<div className="w-9 h-9 rounded-lg bg-gray-a3 flex items-center justify-center text-gray-11">
+				<div className="w-10 h-10 rounded-full bg-gray-a3 flex items-center justify-center text-gray-11">
 					<svg
 						className="w-5 h-5"
 						fill="none"
@@ -100,11 +100,11 @@ function ActiveCampaignsCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 					</svg>
 				</div>
 			</div>
-			<Text size="7" weight="bold" className="text-gray-12">
+			<Text size="7" weight="bold" className="text-gray-12 tracking-tight">
 				{formatNumber(tierInfo.activeGiveaways)}
 			</Text>
 			{!isUnlimited && (
-				<div className="space-y-1">
+				<div className="space-y-2">
 					<div className="w-full h-1.5 bg-gray-a3 rounded-full overflow-hidden">
 						<div
 							className={`h-full rounded-full transition-all ${barColor}`}
@@ -124,7 +124,7 @@ function ActiveCampaignsCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 
 export function StatsCards({ stats, tierInfo }: StatsCardsProps) {
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 			<PlanCard tierInfo={tierInfo} />
 			<StatCard
 				label="Total Giveaways"

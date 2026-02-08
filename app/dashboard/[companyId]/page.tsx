@@ -1,6 +1,7 @@
 import { Text } from "@whop/react/components";
 import { getDashboardStats, getCompanyGiveaways } from "@/lib/data";
 import { getCompanyTierInfo } from "@/lib/tiers";
+import { getPlanPurchaseUrl } from "@/lib/whop";
 import { StatsCards } from "./components/stats-cards";
 import { GiveawaysTable } from "./components/giveaways-table";
 import { EmptyState } from "./components/empty-state";
@@ -30,12 +31,35 @@ export default async function DashboardPage({
 		});
 
 		const hasGiveaways = giveaways.length > 0;
+		const shouldShowUpgradeBanner =
+			tierInfo.tier !== "business" &&
+			tierInfo.activeGiveaways >= tierInfo.limits.maxActiveGiveaways;
+		let upgradeUrl: string | null = null;
+
+		if (shouldShowUpgradeBanner) {
+			const nextPlanId =
+				tierInfo.tier === "free"
+					? process.env.WHOP_PRO_PLAN_ID
+					: process.env.WHOP_BUSINESS_PLAN_ID;
+
+			if (!nextPlanId) {
+				console.warn(
+					"[Dashboard Page] Missing plan ID for upgrade banner.",
+					{ tier: tierInfo.tier },
+				);
+			} else {
+				upgradeUrl = await getPlanPurchaseUrl(nextPlanId);
+			}
+		}
 
 		return (
-			<div className="space-y-8">
+			<div className="space-y-10">
 				{/* Page Header */}
-				<div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+				<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
 					<div className="space-y-2">
+						<Text size="1" className="text-gray-9 uppercase tracking-wide">
+							Overview
+						</Text>
 						<Text size="7" weight="bold" className="text-gray-12">
 							Dashboard
 						</Text>
@@ -47,10 +71,9 @@ export default async function DashboardPage({
 				</div>
 
 				{/* Upgrade Banner */}
-				{tierInfo.tier !== "business" &&
-					tierInfo.activeGiveaways >= tierInfo.limits.maxActiveGiveaways && (
-						<UpgradeBanner currentTier={tierInfo.tier} />
-					)}
+				{shouldShowUpgradeBanner && (
+					<UpgradeBanner currentTier={tierInfo.tier} upgradeUrl={upgradeUrl} />
+				)}
 
 				{/* Stats Cards */}
 				<StatsCards stats={stats} tierInfo={tierInfo} />
@@ -64,9 +87,9 @@ export default async function DashboardPage({
 
 				{/* Quick Tips */}
 				{hasGiveaways && (
-					<div className="bg-gray-1 border border-gray-a4 rounded-xl p-7">
-						<div className="flex items-start gap-4">
-							<div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-a3 flex items-center justify-center text-blue-9">
+					<div className="bg-gray-a2 border border-gray-a4 rounded-2xl p-7 shadow-sm">
+						<div className="flex items-start gap-5">
+							<div className="flex-shrink-0 w-11 h-11 rounded-2xl bg-blue-a3 flex items-center justify-center text-blue-11">
 								<svg
 									className="w-5 h-5"
 									fill="none"
@@ -81,12 +104,11 @@ export default async function DashboardPage({
 									/>
 								</svg>
 							</div>
-							<div>
-								<Text
-									size="3"
-									weight="medium"
-									className="text-gray-12 mb-1"
-								>
+							<div className="space-y-2">
+								<Text size="1" className="text-gray-9 uppercase tracking-wide">
+									Growth insight
+								</Text>
+								<Text size="3" weight="semibold" className="text-gray-12">
 									Pro Tip: Maximize Your Reach
 								</Text>
 								<Text size="2" className="text-gray-10">

@@ -53,3 +53,20 @@ export async function checkUserAccess(companyId: string, userId: string) {
 export async function getExperience(experienceId: string) {
 	return whop.experiences.retrieve(experienceId);
 }
+
+/**
+ * Get the purchase URL for a plan
+ */
+export async function getPlanPurchaseUrl(planId: string) {
+	try {
+		const plan = await whop.plans.retrieve(planId);
+		if (!plan?.purchase_url) {
+			console.warn("[getPlanPurchaseUrl] Missing purchase_url for plan:", planId);
+			return null;
+		}
+		return plan.purchase_url;
+	} catch (error) {
+		console.error("[getPlanPurchaseUrl] Failed to retrieve plan:", planId, error);
+		return null;
+	}
+}
