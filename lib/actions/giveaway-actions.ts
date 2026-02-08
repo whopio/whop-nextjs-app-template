@@ -10,7 +10,7 @@ import { getCompanyTier, TIER_LIMITS } from "@/lib/tiers";
 // VALIDATION SCHEMAS
 // ============================================================================
 
-export const createGiveawaySchema = z.object({
+const createGiveawaySchema = z.object({
 	title: z
 		.string()
 		.min(1, "Title is required")
