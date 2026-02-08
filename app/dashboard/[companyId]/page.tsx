@@ -108,7 +108,7 @@ export default async function DashboardPage({
 								<Text size="1" className="text-gray-9 uppercase tracking-wide">
 									Growth insight
 								</Text>
-								<Text size="3" weight="semibold" className="text-gray-12">
+								<Text size="3" weight="semi-bold" className="text-gray-12">
 									Pro Tip: Maximize Your Reach
 								</Text>
 								<Text size="2" className="text-gray-10">

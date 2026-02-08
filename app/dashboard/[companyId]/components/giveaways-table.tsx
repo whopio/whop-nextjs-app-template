@@ -48,7 +48,7 @@ function GiveawayRow({
 			<td className="px-6 py-4">
 				<Text
 					size="3"
-					weight="semibold"
+					weight="semi-bold"
 					className="text-gray-12"
 				>
 					{giveaway.title}
@@ -68,12 +68,12 @@ function GiveawayRow({
 				</Text>
 			</td>
 			<td className="px-6 py-4 text-center">
-				<Text size="3" weight="semibold" className="text-gray-12">
+				<Text size="3" weight="semi-bold" className="text-gray-12">
 					{formatNumber(giveaway.entries_count)}
 				</Text>
 			</td>
 			<td className="px-6 py-4 text-center">
-				<Text size="3" weight="semibold" className="text-gray-12">
+				<Text size="3" weight="semi-bold" className="text-gray-12">
 					{giveaway.winners_count} / {giveaway.winner_count}
 				</Text>
 			</td>
@@ -99,7 +99,7 @@ export function GiveawaysTable({ giveaways, companyId }: GiveawaysTableProps) {
 	return (
 		<div className="bg-gray-1 border border-gray-a4 rounded-2xl overflow-hidden shadow-sm">
 			<div className="px-6 py-5 border-b border-gray-a4 flex items-center justify-between">
-				<Text size="5" weight="semibold" className="text-gray-12">
+				<Text size="5" weight="semi-bold" className="text-gray-12">
 					Your Giveaways
 				</Text>
 				<Text size="1" className="text-gray-9 uppercase tracking-wide">
