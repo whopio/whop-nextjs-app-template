@@ -55,7 +55,7 @@ export async function getExperience(experienceId: string) {
 }
 
 /**
- * Get the purchase URL for a plan
+ * Get the purchase URL for a plan (plan_xxx)
  */
 export async function getPlanPurchaseUrl(planId: string) {
 	try {
@@ -67,6 +67,40 @@ export async function getPlanPurchaseUrl(planId: string) {
 		return plan.purchase_url;
 	} catch (error) {
 		console.error("[getPlanPurchaseUrl] Failed to retrieve plan:", planId, error);
+		return null;
+	}
+}
+
+/**
+ * Get the purchase URL for a product (prod_xxx) by listing its plans and using the first plan's checkout link.
+ * Use this when WHOP_PRO_PLAN_ID / WHOP_BUSINESS_PLAN_ID are product IDs.
+ */
+export async function getPurchaseUrlForProduct(
+	productId: string,
+	companyId: string,
+): Promise<string | null> {
+	try {
+		const page = await whop.plans.list({
+			company_id: companyId,
+			product_ids: [productId],
+			first: 10,
+		});
+		const plans = page.data ?? [];
+		const planWithUrl = plans.find((p) => p.purchase_url);
+		if (planWithUrl?.purchase_url) {
+			return planWithUrl.purchase_url;
+		}
+		console.warn(
+			"[getPurchaseUrlForProduct] No plan with purchase_url for product:",
+			productId,
+		);
+		return null;
+	} catch (error) {
+		console.error(
+			"[getPurchaseUrlForProduct] Failed to list plans for product:",
+			productId,
+			error,
+		);
 		return null;
 	}
 }

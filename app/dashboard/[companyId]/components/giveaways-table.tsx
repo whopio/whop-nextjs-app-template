@@ -102,7 +102,7 @@ export function GiveawaysTable({ giveaways, companyId }: GiveawaysTableProps) {
 				<Text size="5" weight="semi-bold" className="text-gray-12">
 					Your Giveaways
 				</Text>
-				<Text size="1" className="text-gray-9 uppercase tracking-wide">
+				<Text size="1" className="text-gray-10 uppercase tracking-wide">
 					{giveaways.length} total
 				</Text>
 			</div>
@@ -111,32 +111,32 @@ export function GiveawaysTable({ giveaways, companyId }: GiveawaysTableProps) {
 					<thead>
 						<tr className="border-b border-gray-a4 bg-gray-a2">
 							<th className="px-6 py-3 text-left">
-								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+								<Text size="1" weight="medium" className="text-gray-10 uppercase tracking-wide">
 									Name
 								</Text>
 							</th>
 							<th className="px-6 py-3 text-left">
-								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+								<Text size="1" weight="medium" className="text-gray-10 uppercase tracking-wide">
 									Status
 								</Text>
 							</th>
 							<th className="px-6 py-3 text-left">
-								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+								<Text size="1" weight="medium" className="text-gray-10 uppercase tracking-wide">
 									Duration
 								</Text>
 							</th>
 							<th className="px-6 py-3 text-center">
-								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+								<Text size="1" weight="medium" className="text-gray-10 uppercase tracking-wide">
 									Entries
 								</Text>
 							</th>
 							<th className="px-6 py-3 text-center">
-								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+								<Text size="1" weight="medium" className="text-gray-10 uppercase tracking-wide">
 									Winners
 								</Text>
 							</th>
 							<th className="px-6 py-3 text-right">
-								<Text size="1" weight="medium" className="text-gray-9 uppercase tracking-wide">
+								<Text size="1" weight="medium" className="text-gray-10 uppercase tracking-wide">
 									Actions
 								</Text>
 							</th>

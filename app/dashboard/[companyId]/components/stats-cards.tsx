@@ -18,7 +18,7 @@ function StatCard({ label, value, icon }: StatCardProps) {
 	return (
 		<div className="bg-gray-a2 border border-gray-a4 rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
 			<div className="flex items-center justify-between">
-				<Text size="1" className="text-gray-9 uppercase tracking-wide">
+				<Text size="1" className="text-gray-10 uppercase tracking-wide">
 					{label}
 				</Text>
 				<div className="w-10 h-10 rounded-full bg-gray-a3 flex items-center justify-center text-gray-11">
@@ -36,7 +36,7 @@ function PlanCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 	return (
 		<div className="bg-gray-a2 border border-gray-a4 rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
 			<div className="flex items-center justify-between">
-				<Text size="1" className="text-gray-9 uppercase tracking-wide">
+				<Text size="1" className="text-gray-10 uppercase tracking-wide">
 					Current Plan
 				</Text>
 				<div className="w-10 h-10 rounded-full bg-blue-a3 flex items-center justify-center text-blue-11">
@@ -81,7 +81,7 @@ function ActiveCampaignsCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 	return (
 		<div className="bg-gray-a2 border border-gray-a4 rounded-2xl p-7 flex flex-col gap-4 shadow-sm">
 			<div className="flex items-center justify-between">
-				<Text size="1" className="text-gray-9 uppercase tracking-wide">
+				<Text size="1" className="text-gray-10 uppercase tracking-wide">
 					Active Campaigns
 				</Text>
 				<div className="w-10 h-10 rounded-full bg-gray-a3 flex items-center justify-center text-gray-11">
@@ -113,7 +113,7 @@ function ActiveCampaignsCard({ tierInfo }: { tierInfo: CompanyTierInfo }) {
 							}}
 						/>
 					</div>
-					<Text size="1" className="text-gray-9">
+					<Text size="1" className="text-gray-10">
 						{tierInfo.activeGiveaways} / {tierInfo.limits.maxActiveGiveaways}
 					</Text>
 				</div>

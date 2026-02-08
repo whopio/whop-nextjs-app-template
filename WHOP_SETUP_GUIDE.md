@@ -169,8 +169,13 @@ Make sure ALL of these are set in both `.env.local` (local dev) and Vercel (prod
 | `WHOP_WEBHOOK_SECRET` | Whop Developer Dashboard > Your App > Webhooks > Secret |
 | `NEXT_PUBLIC_WHOP_APP_ID` | Whop Developer Dashboard > Your App > App ID |
 | `DATABASE_URL` | Neon Dashboard > Your Project > Connection Details (set automatically by Neon-Vercel integration) |
-| `WHOP_PRO_PLAN_ID` | Whop Dashboard > Your Pro pricing plan > Plan ID |
-| `WHOP_BUSINESS_PLAN_ID` | Whop Dashboard > Your Business pricing plan > Plan ID |
+| `WHOP_PRO_PLAN_ID` | Whop Dashboard > Your Pro plan or product ID (`plan_xxx` for API checkout; `prod_xxx` works for webhooks only) |
+| `WHOP_BUSINESS_PLAN_ID` | Whop Dashboard > Your Business plan or product ID (same as above) |
+| `WHOP_PRO_CHECKOUT_URL` | (Optional) Direct Pro checkout link from Whop Dashboard > Checkout links (e.g. `https://whop.com/checkout/plan_xxx`) |
+| `WHOP_BUSINESS_CHECKOUT_URL` | (Optional) Direct Business checkout link from Checkout links |
+| `WHOP_PRICING_PAGE_URL` | (Optional) Your product/access page (e.g. `https://whop.com/giveawaymaster/giveawaymaster-access/`) — used as final fallback so "Upgrade to Pro" always links somewhere |
+
+**Upgrade button behavior:** The app tries (1) Whop API with a plan ID (`plan_xxx`), then (2) `WHOP_PRO_CHECKOUT_URL` / `WHOP_BUSINESS_CHECKOUT_URL`, then (3) `WHOP_PRICING_PAGE_URL`. Set at least (2) or (3) in Vercel so the button is never "Upgrade unavailable". You do **not** need a separate "free tier" URL — the free tier is the default; the upgrade flow sends users to Pro/Business checkout or your pricing page.
 
 ### Verify in Vercel
 
