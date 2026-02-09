@@ -33,6 +33,9 @@ const createGiveawaySchema = z.object({
 		.string()
 		.min(1, "Prize title is required")
 		.max(100, "Prize title must be less than 100 characters"),
+	experience_id: z
+		.string()
+		.min(1, "Experience is required"),
 });
 
 export type CreateGiveawayInput = z.infer<typeof createGiveawaySchema>;
@@ -196,7 +199,7 @@ export async function createGiveaway(
 			return { success: false, error: firstError.message };
 		}
 
-		const { title, description, end_date, prize_image_url, prize_title } =
+		const { title, description, end_date, prize_image_url, prize_title, experience_id } =
 			validationResult.data;
 
 		const headersList = await headers();
@@ -229,9 +232,10 @@ export async function createGiveaway(
 		});
 
 		const inserted = await sql`
-			INSERT INTO giveaways (company_id, title, description, start_date, end_date, status, prize_details)
+			INSERT INTO giveaways (company_id, experience_id, title, description, start_date, end_date, status, prize_details)
 			VALUES (
 				${companyId},
+				${experience_id},
 				${title},
 				${description || null},
 				${new Date().toISOString()},

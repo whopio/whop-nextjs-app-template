@@ -55,6 +55,31 @@ export async function getExperience(experienceId: string) {
 }
 
 /**
+ * List all experiences for a company
+ */
+export async function listCompanyExperiences(companyId: string) {
+	try {
+		const experiences: { id: string; name: string }[] = [];
+		for await (const experience of whop.experiences.list({
+			company_id: companyId,
+		})) {
+			experiences.push({
+				id: experience.id,
+				name: experience.name ?? experience.id,
+			});
+		}
+		return experiences;
+	} catch (error) {
+		console.error(
+			"[listCompanyExperiences] Failed to list experiences for company:",
+			companyId,
+			error,
+		);
+		return [];
+	}
+}
+
+/**
  * Get the purchase URL for a plan (plan_xxx)
  */
 export async function getPlanPurchaseUrl(planId: string) {
