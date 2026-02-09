@@ -40,16 +40,6 @@ export default async function ExperiencePage({
 
 	const giveaway = giveawayRows[0] as unknown as Giveaway;
 
-	const now = new Date();
-	const startDate = new Date(giveaway.start_date);
-	const endDate = new Date(giveaway.end_date);
-	const isActive =
-		giveaway.status === "active" && now >= startDate && now <= endDate;
-
-	if (!isActive && giveaway.status !== "active") {
-		return <EmptyExperienceState />;
-	}
-
 	// Check if user has already entered
 	const userEntryRows = await sql`
 		SELECT id, referral_code, entry_count, referral_count

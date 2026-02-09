@@ -1,7 +1,7 @@
 import { Text } from "@whop/react/components";
 import { getDashboardStats, getCompanyGiveaways } from "@/lib/data";
 import { getCompanyTierInfo } from "@/lib/tiers";
-import { getPlanPurchaseUrl, getPurchaseUrlForProduct } from "@/lib/whop";
+import { getPlanPurchaseUrl, getPurchaseUrlForProduct, listCompanyExperiences } from "@/lib/whop";
 import { StatsCards } from "./components/stats-cards";
 import { GiveawaysTable } from "./components/giveaways-table";
 import { EmptyState } from "./components/empty-state";
@@ -18,10 +18,11 @@ export default async function DashboardPage({
 	try {
 		console.log("[Dashboard Page] Starting render for company:", companyId);
 
-		const [stats, giveaways, tierInfo] = await Promise.all([
+		const [stats, giveaways, tierInfo, experiences] = await Promise.all([
 			getDashboardStats(companyId),
 			getCompanyGiveaways(companyId),
 			getCompanyTierInfo(companyId),
+			listCompanyExperiences(companyId),
 		]);
 
 		console.log("[Dashboard Page] Data loaded:", {
@@ -78,7 +79,7 @@ export default async function DashboardPage({
 							Manage your giveaway campaigns
 						</Text>
 					</div>
-					<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} />
+					<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} experiences={experiences} />
 				</div>
 
 				{/* Upgrade Banner */}
@@ -93,7 +94,7 @@ export default async function DashboardPage({
 				{hasGiveaways ? (
 					<GiveawaysTable giveaways={giveaways} companyId={companyId} />
 				) : (
-					<EmptyState companyId={companyId} tierInfo={tierInfo} />
+					<EmptyState companyId={companyId} tierInfo={tierInfo} experiences={experiences} />
 				)}
 
 				{/* Quick Tips */}

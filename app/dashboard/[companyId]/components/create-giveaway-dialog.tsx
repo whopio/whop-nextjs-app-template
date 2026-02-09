@@ -10,9 +10,15 @@ import {
 } from "@/lib/actions/giveaway-actions";
 import type { CompanyTierInfo } from "@/lib/tiers";
 
+interface Experience {
+	id: string;
+	name: string;
+}
+
 interface CreateGiveawayDialogProps {
 	companyId: string;
 	tierInfo: CompanyTierInfo;
+	experiences: Experience[];
 }
 
 interface FormErrors {
@@ -20,11 +26,13 @@ interface FormErrors {
 	prize_title?: string;
 	end_date?: string;
 	prize_image_url?: string;
+	experience_id?: string;
 }
 
 export function CreateGiveawayDialog({
 	companyId,
 	tierInfo,
+	experiences,
 }: CreateGiveawayDialogProps) {
 	const router = useRouter();
 	const isAtLimit =
@@ -39,6 +47,9 @@ export function CreateGiveawayDialog({
 	const [prizeTitle, setPrizeTitle] = useState("");
 	const [prizeImageUrl, setPrizeImageUrl] = useState("");
 	const [endDate, setEndDate] = useState("");
+	const [experienceId, setExperienceId] = useState(
+		experiences.length === 1 ? experiences[0].id : "",
+	);
 
 	const resetForm = () => {
 		setTitle("");
@@ -46,6 +57,7 @@ export function CreateGiveawayDialog({
 		setPrizeTitle("");
 		setPrizeImageUrl("");
 		setEndDate("");
+		setExperienceId(experiences.length === 1 ? experiences[0].id : "");
 		setErrors({});
 	};
 
@@ -76,6 +88,10 @@ export function CreateGiveawayDialog({
 			newErrors.prize_image_url = "Must be a valid URL";
 		}
 
+		if (!experienceId) {
+			newErrors.experience_id = "Experience is required";
+		}
+
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
 	};
@@ -100,6 +116,7 @@ export function CreateGiveawayDialog({
 				prize_title: prizeTitle.trim(),
 				prize_image_url: prizeImageUrl.trim() || undefined,
 				end_date: endDate,
+				experience_id: experienceId,
 			};
 
 			const result = await createGiveaway(companyId, input);
@@ -179,6 +196,28 @@ export function CreateGiveawayDialog({
 						</Dialog.Description>
 
 						<form onSubmit={handleSubmit} className="space-y-5">
+							{experiences.length > 1 && (
+								<div className="space-y-2">
+									<label htmlFor="experienceId" className="text-sm font-medium text-gray-12">
+										Experience <span className="text-red-9">*</span>
+									</label>
+									<select
+										id="experienceId"
+										value={experienceId}
+										onChange={(e) => setExperienceId(e.target.value)}
+										className={`w-full px-4 py-2.5 rounded-lg bg-gray-a3 border ${errors.experience_id ? "border-red-9" : "border-gray-a6"} text-gray-12 focus:outline-none focus:ring-2 focus:ring-blue-9`}
+									>
+										<option value="">Select an experience...</option>
+										{experiences.map((exp) => (
+											<option key={exp.id} value={exp.id}>
+												{exp.name}
+											</option>
+										))}
+									</select>
+									{errors.experience_id && <Text size="1" className="text-red-9">{errors.experience_id}</Text>}
+								</div>
+							)}
+
 							<div className="space-y-2">
 								<label htmlFor="title" className="text-sm font-medium text-gray-12">
 									Title <span className="text-red-9">*</span>

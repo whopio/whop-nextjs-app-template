@@ -2,12 +2,18 @@ import { Text } from "@whop/react/components";
 import { CreateGiveawayDialog } from "./create-giveaway-dialog";
 import type { CompanyTierInfo } from "@/lib/tiers";
 
+interface Experience {
+	id: string;
+	name: string;
+}
+
 interface EmptyStateProps {
 	companyId: string;
 	tierInfo: CompanyTierInfo;
+	experiences: Experience[];
 }
 
-export function EmptyState({ companyId, tierInfo }: EmptyStateProps) {
+export function EmptyState({ companyId, tierInfo, experiences }: EmptyStateProps) {
 	return (
 		<div className="bg-gray-1 border border-gray-a4 rounded-2xl overflow-hidden shadow-sm">
 			<div className="px-10 py-14 text-center">
@@ -35,7 +41,7 @@ export function EmptyState({ companyId, tierInfo }: EmptyStateProps) {
 					Participants share to earn more entries, creating organic viral growth.
 				</Text>
 
-				<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} />
+				<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} experiences={experiences} />
 			</div>
 
 			<div className="border-t border-gray-a4 bg-gray-a2 px-8 py-7">
