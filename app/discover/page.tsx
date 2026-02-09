@@ -22,10 +22,10 @@ export default function DiscoverPage() {
 							/>
 						</svg>
 					</div>
-					<h1 className="text-5xl font-bold text-gray-12 mb-4">
+					<h1 className="text-4xl sm:text-5xl font-bold text-gray-12 mb-4 break-words">
 						Giveaway Master
 					</h1>
-					<p className="text-xl text-gray-10 max-w-2xl mx-auto mb-8">
+					<p className="text-lg sm:text-xl text-gray-10 max-w-2xl mx-auto mb-8">
 						Create viral giveaways with built-in referral tracking.
 						Grow your audience exponentially through social sharing
 						and referral incentives.
@@ -38,9 +38,9 @@ export default function DiscoverPage() {
 				</div>
 
 				{/* Features */}
-				<div className="grid md:grid-cols-3 gap-6 mb-16">
-					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6">
-						<h3 className="text-lg font-semibold text-gray-12 mb-2">
+				<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
+					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6 overflow-hidden">
+						<h3 className="text-lg font-semibold text-gray-12 mb-2 break-words">
 							Viral Referral System
 						</h3>
 						<p className="text-sm text-gray-10">
@@ -49,8 +49,8 @@ export default function DiscoverPage() {
 							winning. Growth on autopilot.
 						</p>
 					</div>
-					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6">
-						<h3 className="text-lg font-semibold text-gray-12 mb-2">
+					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6 overflow-hidden">
+						<h3 className="text-lg font-semibold text-gray-12 mb-2 break-words">
 							Social Growth Actions
 						</h3>
 						<p className="text-sm text-gray-10">
@@ -59,8 +59,8 @@ export default function DiscoverPage() {
 							at once.
 						</p>
 					</div>
-					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6">
-						<h3 className="text-lg font-semibold text-gray-12 mb-2">
+					<div className="bg-gray-a2 border border-gray-a4 rounded-xl p-6 overflow-hidden">
+						<h3 className="text-lg font-semibold text-gray-12 mb-2 break-words">
 							Fair Winner Selection
 						</h3>
 						<p className="text-sm text-gray-10">
@@ -76,7 +76,7 @@ export default function DiscoverPage() {
 					<h2 className="text-2xl font-bold text-gray-12 mb-6 text-center">
 						How It Works
 					</h2>
-					<div className="grid md:grid-cols-4 gap-6">
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 						{[
 							{
 								step: "1",

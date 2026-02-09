@@ -16,7 +16,7 @@ interface EmptyStateProps {
 export function EmptyState({ companyId, tierInfo, experiences }: EmptyStateProps) {
 	return (
 		<div className="bg-gray-1 border border-gray-a4 rounded-2xl overflow-hidden shadow-sm">
-			<div className="px-10 py-14 text-center">
+			<div className="px-6 sm:px-10 py-14 text-center">
 				<div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-blue-a3 to-purple-a3 flex items-center justify-center">
 					<svg
 						className="w-10 h-10 text-blue-9"
@@ -69,12 +69,12 @@ export function EmptyState({ companyId, tierInfo, experiences }: EmptyStateProps
 					].map((benefit, index) => (
 						<div
 							key={index}
-							className="rounded-xl border border-gray-a4 bg-gray-1 p-4"
+							className="rounded-xl border border-gray-a4 bg-gray-1 p-4 overflow-hidden"
 						>
-							<Text size="2" weight="medium" className="text-gray-12 mb-1">
+							<Text size="2" weight="medium" className="text-gray-12 mb-1 truncate block">
 								{benefit.title}
 							</Text>
-							<Text size="1" className="text-gray-10">
+							<Text size="1" className="text-gray-10 line-clamp-2">
 								{benefit.description}
 							</Text>
 						</div>

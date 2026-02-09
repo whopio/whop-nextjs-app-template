@@ -45,11 +45,11 @@ function GiveawayRow({
 }) {
 	return (
 		<tr className="border-b border-gray-a4 hover:bg-gray-a2 transition-colors">
-			<td className="px-6 py-4">
+			<td className="px-6 py-4 max-w-xs">
 				<Text
 					size="3"
 					weight="semi-bold"
-					className="text-gray-12"
+					className="text-gray-12 truncate block"
 				>
 					{giveaway.title}
 				</Text>
@@ -59,20 +59,20 @@ function GiveawayRow({
 					</Text>
 				)}
 			</td>
-			<td className="px-6 py-4">
+			<td className="px-6 py-4 whitespace-nowrap">
 				<StatusBadge status={giveaway.status} />
 			</td>
-			<td className="px-6 py-4">
+			<td className="px-6 py-4 whitespace-nowrap">
 				<Text size="2" className="text-gray-10">
 					{formatDateRange(giveaway.start_date, giveaway.end_date)}
 				</Text>
 			</td>
-			<td className="px-6 py-4 text-center">
+			<td className="px-6 py-4 text-center whitespace-nowrap">
 				<Text size="3" weight="semi-bold" className="text-gray-12">
 					{formatNumber(giveaway.entries_count)}
 				</Text>
 			</td>
-			<td className="px-6 py-4 text-center">
+			<td className="px-6 py-4 text-center whitespace-nowrap">
 				<Text size="3" weight="semi-bold" className="text-gray-12">
 					{giveaway.winners_count} / {giveaway.winner_count}
 				</Text>
@@ -107,7 +107,7 @@ export function GiveawaysTable({ giveaways, companyId }: GiveawaysTableProps) {
 				</Text>
 			</div>
 			<div className="overflow-x-auto">
-				<table className="w-full">
+				<table className="w-full min-w-[640px]">
 					<thead>
 						<tr className="border-b border-gray-a4 bg-gray-a2">
 							<th className="px-6 py-3 text-left">

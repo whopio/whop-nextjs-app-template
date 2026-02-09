@@ -51,8 +51,8 @@ export function NotEnteredState({
 							/>
 							<div className="absolute inset-0 bg-gradient-to-t from-gray-1/60 via-transparent to-transparent" />
 							{giveaway.prize_details.value && (
-								<div className="absolute top-4 right-4 bg-gray-1/80 backdrop-blur-sm border border-gray-a6 rounded-lg px-3 py-1.5">
-									<span className="text-green-11 font-bold">
+								<div className="absolute top-4 right-4 bg-gray-1/80 backdrop-blur-sm border border-gray-a6 rounded-lg px-3 py-1.5 max-w-[50%]">
+									<span className="text-green-11 font-bold truncate block">
 										{giveaway.prize_details.currency ||
 											"$"}
 										{giveaway.prize_details.value.toLocaleString()}
@@ -80,17 +80,17 @@ export function NotEnteredState({
 				)}
 
 				{/* Title and Description */}
-				<div className="text-center space-y-3">
-					<h1 className="text-3xl sm:text-4xl font-bold text-gray-12">
+				<div className="text-center space-y-3 overflow-hidden">
+					<h1 className="text-3xl sm:text-4xl font-bold text-gray-12 break-words">
 						{giveaway.title}
 					</h1>
 					{giveaway.prize_details.title && (
-						<p className="text-purple-11 text-lg font-medium">
+						<p className="text-purple-11 text-lg font-medium break-words">
 							Win: {giveaway.prize_details.title}
 						</p>
 					)}
 					{giveaway.description && (
-						<p className="text-gray-10 text-base">
+						<p className="text-gray-10 text-base line-clamp-4 break-words">
 							{giveaway.description}
 						</p>
 					)}

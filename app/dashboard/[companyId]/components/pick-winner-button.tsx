@@ -89,9 +89,9 @@ export function PickWinnerButton({
 							<Text size="4" weight="medium" className="text-gray-12 mb-2">Congratulations!</Text>
 							<Text size="2" className="text-gray-10">The winner has been randomly selected from all entries.</Text>
 						</div>
-						<div className="bg-gray-a3 rounded-lg p-4">
+						<div className="bg-gray-a3 rounded-lg p-4 overflow-hidden">
 							<Text size="1" className="text-gray-10 mb-1">Winner User ID</Text>
-							<Text size="3" weight="medium" className="text-gray-12 font-mono">{winner.userId}</Text>
+							<Text size="3" weight="medium" className="text-gray-12 font-mono break-all">{winner.userId}</Text>
 						</div>
 						<div className="flex justify-end gap-3">
 							{remainingSlots > 1 && (
@@ -104,9 +104,9 @@ export function PickWinnerButton({
 					</div>
 				) : (
 					<div className="space-y-6">
-						<Text size="2" className="text-gray-10">
+						<Text size="2" className="text-gray-10 break-words">
 							You are about to randomly select a winner for{" "}
-							<span className="text-gray-12 font-medium">{giveawayTitle}</span>.
+							<span className="text-gray-12 font-medium break-words">{giveawayTitle}</span>.
 						</Text>
 						<div className="bg-gray-a3 rounded-lg p-4 space-y-2">
 							<div className="flex justify-between">

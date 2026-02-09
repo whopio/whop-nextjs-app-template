@@ -29,19 +29,19 @@ export default async function DashboardLayout({
 		<div className="min-h-screen bg-gray-a1 flex flex-col">
 			{/* Dashboard Header */}
 			<header className="border-b border-gray-a4 bg-gray-a2 px-6 py-3 flex-shrink-0">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-4">
-						<h1 className="text-5 font-bold text-gray-12">
+				<div className="flex items-center justify-between gap-4">
+					<div className="flex items-center gap-4 min-w-0">
+						<h1 className="text-5 font-bold text-gray-12 shrink-0">
 							Giveaway Master
 						</h1>
-						<span className="text-2 text-gray-8">|</span>
-						<span className="text-3 text-gray-10">
+						<span className="text-2 text-gray-8 shrink-0">|</span>
+						<span className="text-3 text-gray-10 truncate">
 							{company.title}
 						</span>
 					</div>
-					<div className="flex items-center gap-4">
+					<div className="flex items-center gap-4 shrink-0">
 						<div className="text-right">
-							<p className="text-3 text-gray-12">{displayName}</p>
+							<p className="text-3 text-gray-12 truncate max-w-[200px]">{displayName}</p>
 							<p className="text-2 text-gray-10">
 								{isOwner ? "Owner" : "Admin"}
 							</p>

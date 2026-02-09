@@ -68,18 +68,20 @@ export default async function DashboardPage({
 			<div className="space-y-12">
 				{/* Page Header */}
 				<div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-					<div className="space-y-1">
+					<div className="space-y-1 min-w-0">
 						<Text size="1" className="text-gray-10 uppercase tracking-wide">
 							Overview
 						</Text>
-						<Text size="7" weight="bold" className="text-gray-12 leading-tight block">
+						<Text size="7" weight="bold" className="text-gray-12 leading-tight block break-words">
 							Dashboard
 						</Text>
 						<Text size="3" className="text-gray-11 block mt-2">
 							Manage your giveaway campaigns
 						</Text>
 					</div>
-					<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} experiences={experiences} />
+					<div className="shrink-0">
+						<CreateGiveawayDialog companyId={companyId} tierInfo={tierInfo} experiences={experiences} />
+					</div>
 				</div>
 
 				{/* Upgrade Banner */}
@@ -143,14 +145,14 @@ export default async function DashboardPage({
 		// Show a diagnostic message instead of crashing
 		return (
 			<div className="p-6 space-y-4">
-				<div className="bg-red-a2 border border-red-a6 rounded-xl p-6">
+				<div className="bg-red-a2 border border-red-a6 rounded-xl p-6 overflow-hidden">
 					<Text size="5" weight="bold" className="text-gray-12 mb-2">
 						Dashboard Error
 					</Text>
 					<Text size="3" className="text-gray-10 mb-4">
 						The dashboard encountered an error while loading. This has been logged for debugging.
 					</Text>
-					<div className="bg-gray-a2 rounded-lg p-4 font-mono text-sm text-gray-11 break-all">
+					<div className="bg-gray-a2 rounded-lg p-4 font-mono text-sm text-gray-11 break-all overflow-x-auto">
 						{message}
 					</div>
 				</div>

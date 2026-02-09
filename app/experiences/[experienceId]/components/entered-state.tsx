@@ -77,12 +77,12 @@ export function EnteredState({ giveaway, entry }: EnteredStateProps) {
 				)}
 
 				{/* Title */}
-				<div className="text-center space-y-2">
-					<h1 className="text-3xl sm:text-4xl font-bold text-gray-12">
+				<div className="text-center space-y-2 overflow-hidden">
+					<h1 className="text-3xl sm:text-4xl font-bold text-gray-12 break-words">
 						{giveaway.title}
 					</h1>
 					{giveaway.prize_details.title && (
-						<p className="text-gray-10 text-lg">
+						<p className="text-gray-10 text-lg break-words">
 							Prize: {giveaway.prize_details.title}
 						</p>
 					)}
@@ -125,12 +125,12 @@ export function EnteredState({ giveaway, entry }: EnteredStateProps) {
 					</div>
 
 					{/* Referral Link */}
-					<div className="flex gap-2">
+					<div className="flex gap-2 min-w-0">
 						<input
 							type="text"
 							readOnly
 							value={referralUrl}
-							className="flex-1 bg-gray-a3 border border-gray-a6 rounded-lg px-4 py-3 text-gray-12 text-sm truncate"
+							className="flex-1 min-w-0 bg-gray-a3 border border-gray-a6 rounded-lg px-4 py-3 text-gray-12 text-sm truncate"
 						/>
 						<Button
 							variant={copied ? "classic" : "classic"}
